@@ -22,8 +22,8 @@
     "config": "config/"
   },
   "engines": {
-    "node": ">= 10.0.0",
-    "yarn": ">= 0.18.0"
+    "node": ">=10.0.0",
+    "yarn": ">=0.18.0"
   },
   "scripts": {
     "test": "yarn run eslint && yarn run jest",
