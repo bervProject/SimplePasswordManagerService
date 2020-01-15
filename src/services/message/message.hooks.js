@@ -1,18 +1,10 @@
-const {
-  softDelete
-} = require('feathers-hooks-common');
-
-const masterHook = require('../../hooks/master-hook');
+const { authenticate } = require('@feathersjs/authentication').hooks;
 
 module.exports = {
   before: {
-    all: [softDelete()],
-    find: [
-      masterHook()
-    ],
-    get: [
-      masterHook()
-    ],
+    all: [ authenticate('jwt') ],
+    find: [],
+    get: [],
     create: [],
     update: [],
     patch: [],

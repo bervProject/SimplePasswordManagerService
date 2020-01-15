@@ -5,13 +5,10 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const masters = sequelizeClient.define('masters', {
+  const message = sequelizeClient.define('message', {
     text: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    deletedAt: {
-      type: DataTypes.DATE
     }
   }, {
     hooks: {
@@ -22,10 +19,10 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  masters.associate = function (models) {
+  message.associate = function (models) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return masters;
+  return message;
 };
