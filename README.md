@@ -4,7 +4,7 @@
 
 | Travis | Codecov |
 |:------:|:-------:|
-| [![Build Status](https://travis-ci.com/bervProject/SimplePasswordManagerService.svg?branch=master)](https://travis-ci.com/bervProject/SimplePasswordManagerService) | [![codecov](https://codecov.io/gh/bervProject/FeathersJS-Boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/FeathersJS-Boilerplate) |
+| [![Build Status](https://travis-ci.com/bervProject/SimplePasswordManagerService.svg?branch=master)](https://travis-ci.com/bervProject/SimplePasswordManagerService) | [![codecov](https://codecov.io/gh/bervProject/SimplePasswordManagerService/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/SimplePasswordManagerService) |
 
 ## About
 
