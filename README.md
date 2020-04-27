@@ -1,19 +1,20 @@
-# FeathersJS-Boilerplate
+# Simple Password Manager Service
 
-[![Build Status](https://travis-ci.org/bervProject/FeathersJS-Boilerplate.svg?branch=master)](https://travis-ci.org/bervProject/FeathersJS-Boilerplate)
-[![Build Status](https://dev.azure.com/berviantoleo/FeathersJS%20Boilerplate/_apis/build/status/bervProject.FeathersJS-Boilerplate?branchName=master)](https://dev.azure.com/berviantoleo/FeathersJS%20Boilerplate/_build/latest?definitionId=2&branchName=master)
-[![codecov](https://codecov.io/gh/bervProject/FeathersJS-Boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/FeathersJS-Boilerplate)
+## Build Status
+
+| Travis | Codecov |
+|:------:|:-------:|
+| [![Build Status](https://travis-ci.com/bervProject/SimplePasswordManagerService.svg?branch=master)](https://travis-ci.com/bervProject/SimplePasswordManagerService) | [![codecov](https://codecov.io/gh/bervProject/FeathersJS-Boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/FeathersJS-Boilerplate) |
 
 ## About
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
-FeathersJS Boilerplate for my own project
+Simple Password Manager Service is a service to manage password and make sure your password it safely protected.
 
 ## Features
 
 * Log with correlation id
-* Upload into Google Cloud Storage
 
 ## Help
 
