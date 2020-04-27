@@ -1,7 +1,7 @@
-const { createLogger, format, transports } = require('winston');
+import { createLogger, format, transports } from 'winston';
 const getNamespace = require('cls-hooked').getNamespace;
 
-const myFormat = format.printf(({level, message, timestamp}) => {
+const myFormat = format.printf(({ level, message, timestamp }) => {
   const loggerNamespace = getNamespace('logger');
   let correlationId = loggerNamespace ? loggerNamespace.get('correlationId') : '';
   correlationId = correlationId ? correlationId : '';
@@ -22,4 +22,4 @@ const logger = createLogger({
   ],
 });
 
-module.exports = logger;
+export default logger;

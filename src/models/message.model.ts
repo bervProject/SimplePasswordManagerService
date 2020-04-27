@@ -1,31 +1,28 @@
 // See http://docs.sequelizejs.com/en/latest/docs/models-definition/
 // for more of what you can do here.
-const Sequelize = require('sequelize');
-const DataTypes = Sequelize.DataTypes;
+import { Sequelize, DataTypes } from 'sequelize';
+import { Application } from '../declarations';
 
-module.exports = function (app) {
-  const sequelizeClient = app.get('sequelizeClient');
-  const upload = sequelizeClient.define('upload', {
-    url: {
+export default function (app: Application) {
+  const sequelizeClient: Sequelize = app.get('sequelizeClient');
+  const message = sequelizeClient.define('message', {
+    text: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    deletedAt: {
-      type: DataTypes.DATE
     }
   }, {
     hooks: {
-      beforeCount(options) {
+      beforeCount(options: any) {
         options.raw = true;
       }
     }
   });
 
   // eslint-disable-next-line no-unused-vars
-  upload.associate = function (models) {
+  (message as any).associate = function (models: any) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return upload;
+  return message;
 };

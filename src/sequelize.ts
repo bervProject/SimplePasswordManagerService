@@ -1,11 +1,12 @@
-const Sequelize = require('sequelize');
+import { Sequelize } from 'sequelize';
+import logger from './logger';
+import { Application } from './declarations';
 
-module.exports = function (app) {
+export default function (app: Application) {
   const connectionString = app.get('postgres');
   const sequelize = new Sequelize(connectionString, {
     dialect: 'postgres',
     logging: false,
-    operatorsAliases: false,
     define: {
       freezeTableName: true
     }
@@ -21,12 +22,14 @@ module.exports = function (app) {
     const models = sequelize.models;
     Object.keys(models).forEach(name => {
       if ('associate' in models[name]) {
-        models[name].associate(models);
+        (models[name] as any).associate(models);
       }
     });
 
     // Sync to the database
-    sequelize.sync();
+    sequelize.sync().catch((err: any) => {
+      logger.info(JSON.stringify(err));
+    });
 
     return result;
   };
