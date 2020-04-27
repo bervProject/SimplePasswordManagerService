@@ -18,6 +18,14 @@ export default function (app: Application) {
     role: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    createdBy: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    updatedBy: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     hooks: {
