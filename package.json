@@ -63,7 +63,7 @@
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.6",
     "@types/helmet": "^0.0.47",
-    "@types/jest": "^26.0.3",
+    "@types/jest": "^26.0.4",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/serve-favicon": "^2.5.0",
     "@types/uuid": "^8.0.0",
