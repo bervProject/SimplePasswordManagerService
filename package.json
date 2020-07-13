@@ -41,7 +41,7 @@
     "@feathersjs/configuration": "^4.5.3",
     "@feathersjs/errors": "^4.5.3",
     "@feathersjs/express": "^4.5.4",
-    "@feathersjs/feathers": "^4.5.3",
+    "@feathersjs/feathers": "^4.5.5",
     "@feathersjs/socketio": "^4.5.4",
     "cls-hooked": "^4.2.2",
     "compression": "^1.7.4",
