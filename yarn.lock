@@ -312,22 +312,22 @@
     debug "^4.1.1"
     lodash "^4.17.19"
 
-"@feathersjs/authentication-oauth@^4.5.7":
-  version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@feathersjs/authentication-oauth/-/authentication-oauth-4.5.7.tgz#22188469b23a5c1346872f13f0f759f5c5ab50c5"
-  integrity sha512-+xEof4o4h/nAuTF/JAypaTkA6vdLfLCHoro22x58uG3dkjDgaY4mIRHAmPgXHMBInzvvj1f2EkZ8dQOwFuO9WQ==
+"@feathersjs/authentication-oauth@^4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@feathersjs/authentication-oauth/-/authentication-oauth-4.5.8.tgz#40fe045741fd9c8c4a53d2a16fd3ee33fea0f88f"
+  integrity sha512-wyWdr+MNEmbL975brstboc86Olj90qjLetv4AKcPbLPh1Gnd+uRJRXNfD8nGPnkd9gPMl9A/PLJtX5+RgvyTGg==
   dependencies:
-    "@feathersjs/authentication" "^4.5.7"
-    "@feathersjs/errors" "^4.5.7"
-    "@feathersjs/express" "^4.5.7"
-    "@feathersjs/feathers" "^4.5.7"
+    "@feathersjs/authentication" "^4.5.8"
+    "@feathersjs/errors" "^4.5.8"
+    "@feathersjs/express" "^4.5.8"
+    "@feathersjs/feathers" "^4.5.8"
     debug "^4.1.1"
     express-session "^1.17.1"
     grant "^4.7.0"
     grant-profile "^0.0.11"
     lodash "^4.17.19"
 
-"@feathersjs/authentication@^4.5.6", "@feathersjs/authentication@^4.5.7", "@feathersjs/authentication@^4.5.8":
+"@feathersjs/authentication@^4.5.6", "@feathersjs/authentication@^4.5.8":
   version "4.5.8"
   resolved "https://registry.yarnpkg.com/@feathersjs/authentication/-/authentication-4.5.8.tgz#348d3e7893a57d24e86667da20b7f152527c0e7b"
   integrity sha512-ESlrw6UIfqBjYp8my6FC04rybazcDRmXcSZ6mgqZCMjjKJYUdavHoSjynuzsEaMAHV7E1P5HrVe0HY7LEir/NQ==
@@ -363,14 +363,14 @@
   dependencies:
     debug "^4.0.0"
 
-"@feathersjs/errors@^4.4.3", "@feathersjs/errors@^4.5.2", "@feathersjs/errors@^4.5.3", "@feathersjs/errors@^4.5.7", "@feathersjs/errors@^4.5.8":
+"@feathersjs/errors@^4.4.3", "@feathersjs/errors@^4.5.2", "@feathersjs/errors@^4.5.3", "@feathersjs/errors@^4.5.8":
   version "4.5.8"
   resolved "https://registry.yarnpkg.com/@feathersjs/errors/-/errors-4.5.8.tgz#4ec2d954953990f5fd61d81459577cd0e0e082e0"
   integrity sha512-PPpTHpCuWR0nbs4vvQEdXC5gLnWHmeDCF+hm9IJouzYkYIjt0UG/vKvPCBNqCREVHVfSrszdzI1MSeHRSUQddQ==
   dependencies:
     debug "^4.1.1"
 
-"@feathersjs/express@^4.5.7", "@feathersjs/express@^4.5.8":
+"@feathersjs/express@^4.5.8":
   version "4.5.8"
   resolved "https://registry.yarnpkg.com/@feathersjs/express/-/express-4.5.8.tgz#422637e0b7633c65a71845fc9370daf50512d9e6"
   integrity sha512-Tg5WvNUG2tsxl4j9l+dHqTFYSxaPcRLV7yZLXTuPALXshpFsGC5ZeDBDHbadMEAlsy5ctiqwgjcOWMChUw00kg==
@@ -383,7 +383,7 @@
     lodash "^4.17.19"
     uberproto "^2.0.6"
 
-"@feathersjs/feathers@^4.5.2", "@feathersjs/feathers@^4.5.3", "@feathersjs/feathers@^4.5.5", "@feathersjs/feathers@^4.5.7", "@feathersjs/feathers@^4.5.8":
+"@feathersjs/feathers@^4.5.2", "@feathersjs/feathers@^4.5.3", "@feathersjs/feathers@^4.5.5", "@feathersjs/feathers@^4.5.8":
   version "4.5.8"
   resolved "https://registry.yarnpkg.com/@feathersjs/feathers/-/feathers-4.5.8.tgz#4d9e7fe035d568f5186c7d4669b57ab97a809d53"
   integrity sha512-6d8oOPGZu4unda4XXNXV8nzaUI/OsUXY7s30HFDFvf7c81A2oe2uQ/u8OdGEiKpKcX5Ugq9lKYhiYCvMM3dibA==
