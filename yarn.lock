@@ -352,14 +352,14 @@
   resolved "https://registry.yarnpkg.com/@feathersjs/commons/-/commons-4.5.9.tgz#07340081b52b6c012b23019d65b8980118cb02d6"
   integrity sha512-CiM6t9ljxcLwqQe2AkfCQqH2qFssjWYoP4z/Ida3IE+bMHMcQQv7aERYbQA6865FEIaHv9ytJL+QabfaUPhKAA==
 
-"@feathersjs/configuration@^4.5.8":
-  version "4.5.8"
-  resolved "https://registry.yarnpkg.com/@feathersjs/configuration/-/configuration-4.5.8.tgz#7c92c611800bb6823833a9987df889adeee83189"
-  integrity sha512-eSMoGJBPlIYJagn+WDW+3ZHOWNdSLeH93Q/w1yV0jLMWMBobUHq912KQJ0PAnrzpcsulEnuDrsL2DBWwa/R0bQ==
+"@feathersjs/configuration@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@feathersjs/configuration/-/configuration-4.5.9.tgz#2d9e5251c3bc52b92d445a9e3c1b46b8025001d9"
+  integrity sha512-O4TO0R7qVOTbFyADf55akT9Ah7Q3HByez0YKJJmqGLrK8qO04Ms8kLr5CVZ9oPLqvgSprsbXXD2bw+6MOSkf3Q==
   dependencies:
-    "@feathersjs/feathers" "^4.5.8"
+    "@feathersjs/feathers" "^4.5.9"
     config "^3.3.1"
-    debug "^4.1.1"
+    debug "^4.2.0"
 
 "@feathersjs/errors@^3.3.6":
   version "3.3.6"
@@ -369,13 +369,6 @@
     debug "^4.0.0"
 
 "@feathersjs/errors@^4.4.3", "@feathersjs/errors@^4.5.2", "@feathersjs/errors@^4.5.8", "@feathersjs/errors@^4.5.9":
-  version "4.5.9"
-  resolved "https://registry.yarnpkg.com/@feathersjs/errors/-/errors-4.5.9.tgz#8e998c59c01454a92f802f9b4846aafc3a677a83"
-  integrity sha512-JqrtbOk3EK5nSal9zI8OGO7qVVYRDDnHarYeINhftAJ26rz0H+Q9qRVrp26TVZ5RKCbXABKP6ObvmNw/gMkFvg==
-  dependencies:
-    debug "^4.2.0"
-
-"@feathersjs/errors@^4.5.9":
   version "4.5.9"
   resolved "https://registry.yarnpkg.com/@feathersjs/errors/-/errors-4.5.9.tgz#8e998c59c01454a92f802f9b4846aafc3a677a83"
   integrity sha512-JqrtbOk3EK5nSal9zI8OGO7qVVYRDDnHarYeINhftAJ26rz0H+Q9qRVrp26TVZ5RKCbXABKP6ObvmNw/gMkFvg==
@@ -415,17 +408,6 @@
     debug "^4.2.0"
     socket.io "^2.3.0"
     uberproto "^2.0.6"
-
-"@feathersjs/transport-commons@^4.5.8", "@feathersjs/transport-commons@^4.5.9":
-  version "4.5.9"
-  resolved "https://registry.yarnpkg.com/@feathersjs/transport-commons/-/transport-commons-4.5.9.tgz#cb61a3779835508f57a45fe3b02280771edb1ca4"
-  integrity sha512-DQzfz6RTZMC/ikMj+jt8JnPGFheASLovgZrWBjiwH+Gc7oLvdDN6yU1S3R+Prf3v8EvHtVDFqR9LE6wtyVFk+g==
-  dependencies:
-    "@feathersjs/commons" "^4.5.9"
-    "@feathersjs/errors" "^4.5.9"
-    debug "^4.2.0"
-    lodash "^4.17.20"
-    radix-router "^3.0.1"
 
 "@feathersjs/transport-commons@^4.5.9":
   version "4.5.9"
