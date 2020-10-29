@@ -20,6 +20,10 @@ export default function (app: Application) {
         type: DataTypes.STRING,
         allowNull: true,
       },
+      githubId: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,

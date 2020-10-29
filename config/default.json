@@ -34,6 +34,10 @@
         "secret": "",
         "scope": ["openid", "profile", "email"],
         "nonce": true
+      },
+      "github": {
+        "key": "<Client ID>",
+        "secret": "<Client Secret>"
       }
     }
   }

@@ -11,7 +11,6 @@ import {
   OAuthStrategy,
 } from "@feathersjs/authentication-oauth";
 import { Application } from "./declarations";
-import logger from "./logger";
 
 declare module "./declarations" {
   interface ServiceTypes {
@@ -35,8 +34,8 @@ class MyAuthenticationService extends AuthenticationService {
 
 class GoogleStrategy extends OAuthStrategy {
   async getEntityData(profile: OAuthProfile, existing: any, params: Params) {
-    // this will set 'googleId'
     params.provider = undefined;
+    // this will set 'googleId'
     const baseData = await super.getEntityData(profile, existing, params);
     // this will grab the picture and email address of the Google profile
     return {
@@ -54,13 +53,34 @@ class GoogleStrategy extends OAuthStrategy {
         { email: profile.email },
       ],
     };
-    logger.info(`Querying ${JSON.stringify(query)}`);
     return query;
   }
+}
 
-  async createEntity(profile: OAuthProfile, params: Params) {
-    // params.
-    await super.createEntity(profile, params);
+class GitHubStrategy extends OAuthStrategy {
+  async getEntityData(profile: OAuthProfile, existing: any, params: Params) {
+    params.provider = undefined;
+    const baseData = await super.getEntityData(profile, existing, params);
+
+    return {
+      ...baseData,
+      // You can also set the display name to profile.name
+      name: profile.login,
+      // The GitHub profile image
+      profilePicture: profile.avatar_url,
+      // The user email address (if available)
+      email: profile.email,
+    };
+  }
+
+  async getEntityQuery(profile: OAuthProfile, params: Params) {
+    let query = {
+      $or: [
+        { [`${this.name}Id`]: profile.sub || profile.id },
+        { email: profile.email },
+      ],
+    };
+    return query;
   }
 }
 
@@ -70,6 +90,7 @@ export default (app: Application) => {
   authentication.register("jwt", new JWTStrategy());
   authentication.register("local", new LocalStrategy());
   authentication.register("google", new GoogleStrategy());
+  authentication.register("github", new GitHubStrategy());
 
   app.use("/authentication", authentication);
   app.configure(expressOauth());
