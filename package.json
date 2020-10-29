@@ -28,7 +28,7 @@
     "fix-lint": "prettier --write .",
     "jest": "jest  --forceExit",
     "lint": "prettier --check .",
-    "start": "yarn run compile && node lib/",
+    "start": "yarn run compile && cross-env NODE_ENV=production node lib/",
     "test": "yarn run compile && yarn run jest"
   },
   "dependencies": {
