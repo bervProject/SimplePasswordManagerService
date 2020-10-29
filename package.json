@@ -24,7 +24,7 @@
   },
   "scripts": {
     "compile": "shx rm -rf lib/ && tsc",
-    "dev": "ts-node-dev --no-notify src/",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --no-notify src/",
     "fix-lint": "prettier --write .",
     "jest": "jest  --forceExit",
     "lint": "prettier --check .",
@@ -66,6 +66,7 @@
     "@types/uuid": "^8.3.0",
     "@types/validator": "^13.1.0",
     "axios": "^0.21.0",
+    "cross-env": "^7.0.2",
     "jest": "^25.5.4",
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
