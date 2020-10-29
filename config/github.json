@@ -1,0 +1,3 @@
+{
+    "postgres": "postgres://postgres:postgres@postgres:5432/spms"
+}
