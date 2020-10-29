@@ -8,7 +8,7 @@
   },
   "bucketName": "<<bucketName>>",
   "nedb": "../data",
-  "postgres": "postgres://postgres:@localhost:5432/feathersjs_boilerplate",
+  "postgres": "postgres://postgres:@localhost:15432/spms",
   "authentication": {
     "entity": "user",
     "service": "users",
@@ -29,6 +29,15 @@
     "local": {
       "usernameField": "email",
       "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "/",
+      "google": {
+        "key": "",
+        "secret": "",
+        "scope": ["openid", "profile", "email"],
+        "nonce": true        
+      }
     }
   }
 }
