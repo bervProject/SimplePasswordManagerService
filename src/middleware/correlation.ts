@@ -1,5 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
-import { Namespace } from 'cls-hooked';
+import { v4 as uuidv4 } from "uuid";
+import { Namespace } from "cls-hooked";
 
 function correlation(namespace: Namespace) {
   return (req: any, res: any, next: any) => {
@@ -9,7 +9,7 @@ function correlation(namespace: Namespace) {
     }
     req.feathers.correlationId = correlationId;
     namespace.run(() => {
-      namespace.set('correlationId', correlationId);
+      namespace.set("correlationId", correlationId);
       next();
     });
   };

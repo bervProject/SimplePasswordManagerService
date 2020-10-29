@@ -1,14 +1,12 @@
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
+  preset: "ts-jest",
+  testEnvironment: "node",
   globals: {
-    'ts-jest': {
-      diagnostics: false
-    }
+    "ts-jest": {
+      diagnostics: false,
+    },
   },
   collectCoverage: true,
-  collectCoverageFrom: [
-    "**/src/*.{ts,tsx}"
-  ],
+  collectCoverageFrom: ["**/src/*.{ts,tsx}"],
   coverageDirectory: "./coverage/",
-}
+};

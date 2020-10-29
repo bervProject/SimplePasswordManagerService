@@ -8,15 +8,12 @@
   },
   "bucketName": "<<bucketName>>",
   "nedb": "../data",
-  "postgres": "postgres://postgres:@localhost:15432/spms",
+  "postgres": "postgres://postgres:devonlypass123@localhost:15432/spms",
   "authentication": {
     "entity": "user",
     "service": "users",
     "secret": "T4ubwNlzOQUp071Q2N7jQuehfH0=",
-    "authStrategies": [
-      "jwt",
-      "local"
-    ],
+    "authStrategies": ["jwt", "local"],
     "jwtOptions": {
       "header": {
         "typ": "access"
@@ -36,7 +33,7 @@
         "key": "",
         "secret": "",
         "scope": ["openid", "profile", "email"],
-        "nonce": true        
+        "nonce": true
       }
     }
   }

@@ -1,22 +1,22 @@
-import path from 'path';
-import favicon from 'serve-favicon';
-import compress from 'compression';
-import helmet from 'helmet';
-import cors from 'cors';
+import path from "path";
+import favicon from "serve-favicon";
+import compress from "compression";
+import helmet from "helmet";
+import cors from "cors";
 
-import feathers from '@feathersjs/feathers';
-import configuration from '@feathersjs/configuration';
-import express from '@feathersjs/express';
-import socketio from '@feathersjs/socketio';
+import feathers from "@feathersjs/feathers";
+import configuration from "@feathersjs/configuration";
+import express from "@feathersjs/express";
+import socketio from "@feathersjs/socketio";
 
-import { Application } from './declarations';
-import logger from './logger';
-import middleware from './middleware';
-import services from './services';
-import appHooks from './app.hooks';
-import channels from './channels';
-import authentication from './authentication';
-import sequelize from './sequelize';
+import { Application } from "./declarations";
+import logger from "./logger";
+import middleware from "./middleware";
+import services from "./services";
+import appHooks from "./app.hooks";
+import channels from "./channels";
+import authentication from "./authentication";
+import sequelize from "./sequelize";
 
 const app: Application = express(feathers());
 
@@ -28,9 +28,9 @@ app.use(cors());
 app.use(compress());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
+app.use(favicon(path.join(app.get("public"), "favicon.ico")));
 // Host the public folder
-app.use('/', express.static(app.get('public')));
+app.use("/", express.static(app.get("public")));
 
 // Set up Plugins and providers
 app.configure(express.rest());

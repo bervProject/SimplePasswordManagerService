@@ -2,8 +2,8 @@
 
 ## Build Status
 
-| Travis | Codecov |
-|:------:|:-------:|
+|                                                                               Travis                                                                                |                                                                                  Codecov                                                                                   |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [![Build Status](https://travis-ci.com/bervProject/SimplePasswordManagerService.svg?branch=master)](https://travis-ci.com/bervProject/SimplePasswordManagerService) | [![codecov](https://codecov.io/gh/bervProject/SimplePasswordManagerService/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/SimplePasswordManagerService) |
 
 ## About
@@ -14,7 +14,7 @@ Simple Password Manager Service is a service to manage password and make sure yo
 
 ## Features
 
-* Log with correlation id
+- Log with correlation id
 
 ## Help
 

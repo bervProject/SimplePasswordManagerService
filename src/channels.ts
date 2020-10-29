@@ -1,20 +1,20 @@
-import '@feathersjs/transport-commons';
-import { HookContext } from '@feathersjs/feathers';
-import { Application } from './declarations';
-import logger from './logger';
+import "@feathersjs/transport-commons";
+import { HookContext } from "@feathersjs/feathers";
+import { Application } from "./declarations";
+import logger from "./logger";
 
 export default function (app: Application) {
-  if (typeof app.channel !== 'function') {
+  if (typeof app.channel !== "function") {
     // If no real-time functionality has been configured just return
     return;
   }
 
-  app.on('connection', (connection: any) => {
+  app.on("connection", (connection: any) => {
     // On a new real-time connection, add it to the anonymous channel
-    app.channel('anonymous').join(connection);
+    app.channel("anonymous").join(connection);
   });
 
-  app.on('login', (authResult: any, { connection }: any) => {
+  app.on("login", (authResult: any, { connection }: any) => {
     // connection can be undefined if there is no
     // real-time connection, e.g. when logging in via REST
     if (connection) {
@@ -22,10 +22,10 @@ export default function (app: Application) {
       // const user = connection.user;
 
       // The connection is no longer anonymous, remove it
-      app.channel('anonymous').leave(connection);
+      app.channel("anonymous").leave(connection);
 
       // Add it to the authenticated user channel
-      app.channel('authenticated').join(connection);
+      app.channel("authenticated").join(connection);
 
       // Channels can be named anything and joined on any condition
 
@@ -46,10 +46,12 @@ export default function (app: Application) {
     // Here you can add event publishers to channels set up in `channels.js`
     // To publish only for a specific event use `app.publish(eventname, () => {})`
 
-    logger.info('Publishing all events to all authenticated users. See `channels.js` and https://docs.feathersjs.com/api/channels.html for more information.');
+    logger.info(
+      "Publishing all events to all authenticated users. See `channels.js` and https://docs.feathersjs.com/api/channels.html for more information."
+    );
 
     // e.g. to publish all service events to all authenticated users use
-    return app.channel('authenticated');
+    return app.channel("authenticated");
   });
 
   // Here you can also add service specific event publishers
@@ -63,4 +65,4 @@ export default function (app: Application) {
   //     app.channel(`emails/${data.recipientEmail}`)
   //   ];
   // });
-};
+}

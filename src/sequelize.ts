@@ -1,27 +1,27 @@
-import { Sequelize } from 'sequelize';
-import logger from './logger';
-import { Application } from './declarations';
+import { Sequelize } from "sequelize";
+import logger from "./logger";
+import { Application } from "./declarations";
 
 export default function (app: Application) {
-  const connectionString = app.get('postgres');
+  const connectionString = app.get("postgres");
   const sequelize = new Sequelize(connectionString, {
-    dialect: 'postgres',
+    dialect: "postgres",
     logging: false,
     define: {
-      freezeTableName: true
-    }
+      freezeTableName: true,
+    },
   });
   const oldSetup = app.setup;
 
-  app.set('sequelizeClient', sequelize);
+  app.set("sequelizeClient", sequelize);
 
   app.setup = function (...args) {
     const result = oldSetup.apply(this, args);
 
     // Set up data relationships
     const models = sequelize.models;
-    Object.keys(models).forEach(name => {
-      if ('associate' in models[name]) {
+    Object.keys(models).forEach((name) => {
+      if ("associate" in models[name]) {
         (models[name] as any).associate(models);
       }
     });
@@ -33,4 +33,4 @@ export default function (app: Application) {
 
     return result;
   };
-};
+}
