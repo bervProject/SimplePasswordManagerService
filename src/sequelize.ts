@@ -3,7 +3,7 @@ import logger from "./logger";
 import { Application } from "./declarations";
 
 export default function (app: Application) {
-  const connectionString = app.get("postgres");
+  const connectionString = process.env.DATABASE_URL || app.get("postgres");
   const sequelize = new Sequelize(connectionString, {
     dialect: "postgres",
     logging: false,
