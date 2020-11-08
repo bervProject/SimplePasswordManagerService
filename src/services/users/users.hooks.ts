@@ -3,7 +3,13 @@ import * as local from "@feathersjs/authentication-local";
 import { HookContext } from "@feathersjs/feathers";
 // Don't remove this comment. It's needed to format import lines nicely.
 import hook from "feathers-advance-hook";
-import { disallow, iff, preventChanges, required } from "feathers-hooks-common";
+import {
+  disallow,
+  iff,
+  preventChanges,
+  required,
+  softDelete,
+} from "feathers-hooks-common";
 
 const { authenticate } = feathersAuthentication.hooks;
 const userAuditHook = hook.userAuditHook;
@@ -15,7 +21,16 @@ const hashWhenAvailable = (context: HookContext) => {
 
 export default {
   before: {
-    all: [],
+    all: [
+      softDelete({
+        deletedQuery: async (context) => {
+          return { deletedFlag: false, deletedAt: null };
+        },
+        removeData: async (context) => {
+          return { deletedFlag: true, deletedAt: new Date() };
+        },
+      }),
+    ],
     find: [authenticate("jwt")],
     get: [authenticate("jwt")],
     create: [

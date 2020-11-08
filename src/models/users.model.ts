@@ -8,20 +8,25 @@ export default function (app: Application) {
   const users = sequelizeClient.define(
     "users",
     {
+      id: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
+      },
       name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1024),
         allowNull: false,
       },
       profilePicture: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(2048),
         allowNull: true,
       },
       googleId: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(4096),
         allowNull: true,
       },
       githubId: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(4096),
         allowNull: true,
       },
       email: {
@@ -30,7 +35,7 @@ export default function (app: Application) {
         unique: true,
       },
       password: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1024),
         allowNull: false,
       },
       role: {
@@ -43,6 +48,15 @@ export default function (app: Application) {
       },
       updatedBy: {
         type: DataTypes.STRING,
+        allowNull: true,
+      },
+      deletedFlag: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
         allowNull: true,
       },
     },

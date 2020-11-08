@@ -5,12 +5,12 @@
   "keywords": [
     "feathers"
   ],
-  "license": "MIT",
   "homepage": "https://github.com/bervProject/SimplePasswordManagerService",
   "bugs": {
     "url": "https://github.com/bervProject/SimplePasswordManagerService/issues",
     "email": "bervianto.leo@gmail.com"
   },
+  "license": "MIT",
   "author": {
     "name": "Bervianto Leo Pratama",
     "email": "bervianto.leo@gmail.com"
@@ -24,11 +24,15 @@
     "config": "config/"
   },
   "scripts": {
-    "compile": "shx rm -rf lib/ && tsc",
+    "clean": "shx rm -rf lib/",
+    "compile": "yarn run clean && tsc",
     "dev": "cross-env NODE_ENV=development ts-node-dev --no-notify src/",
     "fix-lint": "prettier --write .",
     "jest": "jest  --forceExit",
     "lint": "prettier --check .",
+    "migrate": "yarn run compile && node_modules/.bin/sequelize db:migrate --env development",
+    "migrate:undo": "yarn run compile && node_modules/.bin/sequelize db:migrate:undo --env development",
+    "migrate:undo:all": "yarn run compile && node_modules/.bin/sequelize db:migrate:undo:all --env development",
     "start": "yarn run compile && cross-env NODE_ENV=production node lib/",
     "test": "yarn run compile && yarn run jest"
   },
@@ -52,6 +56,7 @@
     "multer": "^1.4.2",
     "pg": "^8.4.2",
     "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
     "serve-favicon": "^2.5.0",
     "uuid": "^8.3.1",
     "winston": "^3.3.3"
@@ -63,6 +68,7 @@
     "@types/cors": "^2.8.8",
     "@types/jest": "^26.0.15",
     "@types/jsonwebtoken": "^8.5.0",
+    "@types/sequelize": "^4.28.9",
     "@types/serve-favicon": "^2.5.1",
     "@types/uuid": "^8.3.0",
     "@types/validator": "^13.1.0",
