@@ -1,4 +1,3 @@
 {
-  "host": "test-feathers-app.feathersjs.com",
-  "port": "8080"
+  "host": "spms-berv.herokuapp.com"
 }

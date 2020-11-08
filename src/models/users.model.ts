@@ -59,6 +59,7 @@ export default function (app: Application) {
   (users as any).associate = function (models: any) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    users.hasMany(models.userpass);
   };
 
   return users;
