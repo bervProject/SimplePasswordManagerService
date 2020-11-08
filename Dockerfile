@@ -3,4 +3,5 @@ WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . .
-CMD ["yarn", "start"]
+RUN yarn compile
+CMD ["yarn", "start:prod"]

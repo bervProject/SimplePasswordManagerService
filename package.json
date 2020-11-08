@@ -34,6 +34,7 @@
     "migrate:undo": "yarn run compile && node_modules/.bin/sequelize db:migrate:undo --env development",
     "migrate:undo:all": "yarn run compile && node_modules/.bin/sequelize db:migrate:undo:all --env development",
     "start": "yarn run compile && cross-env NODE_ENV=production node lib/",
+    "start:prod": "cross-env NODE_ENV=production node lib/",
     "test": "yarn run compile && yarn run jest"
   },
   "dependencies": {
