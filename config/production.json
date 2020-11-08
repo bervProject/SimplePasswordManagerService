@@ -1,5 +1,6 @@
 {
   "host": "spms-berv.herokuapp.com",
+  "postgres": "DATABASE_URL",
   "port": "PORT",
   "authentication": {
     "oauth": {
