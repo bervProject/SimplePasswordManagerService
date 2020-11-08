@@ -5,6 +5,7 @@
   "keywords": [
     "feathers"
   ],
+  "license": "MIT",
   "homepage": "https://github.com/bervProject/SimplePasswordManagerService",
   "bugs": {
     "url": "https://github.com/bervProject/SimplePasswordManagerService/issues",
