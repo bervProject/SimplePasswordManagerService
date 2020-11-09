@@ -319,22 +319,22 @@
     debug "^4.2.0"
     lodash "^4.17.20"
 
-"@feathersjs/authentication-oauth@^4.5.9":
-  version "4.5.9"
-  resolved "https://registry.yarnpkg.com/@feathersjs/authentication-oauth/-/authentication-oauth-4.5.9.tgz#8c599be1dc2f6ccb0a4fa2cd6d99bf9cc78c6fe4"
-  integrity sha512-5Kl1B4k3nngt8EOtXXiVQNODBjZfI1WKyzQUl7UZWS1twYcEYLgk0+0qTz+pTBC1LJTncW72SGwDraWnhqnbhg==
+"@feathersjs/authentication-oauth@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@feathersjs/authentication-oauth/-/authentication-oauth-4.5.10.tgz#c6459267dcf2ed2107daf8a92705871d61e4a48b"
+  integrity sha512-pOoPXhEEpzq7mc5l28XRycakBkVZuL/8LDASa0Azmk5NRBRGdIMb4a/VTEtOOx7k2LDOZGUAc4XA8DQ/tUyFsg==
   dependencies:
-    "@feathersjs/authentication" "^4.5.9"
-    "@feathersjs/errors" "^4.5.9"
-    "@feathersjs/express" "^4.5.9"
-    "@feathersjs/feathers" "^4.5.9"
+    "@feathersjs/authentication" "^4.5.10"
+    "@feathersjs/errors" "^4.5.10"
+    "@feathersjs/express" "^4.5.10"
+    "@feathersjs/feathers" "^4.5.10"
     debug "^4.2.0"
     express-session "^1.17.1"
     grant "^4.7.0"
     grant-profile "^0.0.11"
     lodash "^4.17.20"
 
-"@feathersjs/authentication@^4.5.10", "@feathersjs/authentication@^4.5.9":
+"@feathersjs/authentication@^4.5.10":
   version "4.5.10"
   resolved "https://registry.yarnpkg.com/@feathersjs/authentication/-/authentication-4.5.10.tgz#c134f73da8b7ec3e125858ebe34d9b0dab5a9058"
   integrity sha512-4YfgDfP2GzzW2D76KA5CyHqgCDCJIzZKHKKv55FxgSLs/vOKfufkCMVreOanoRN9eul3Fj6TCbrPT6+QUc+XkQ==
@@ -377,7 +377,7 @@
   dependencies:
     debug "^4.2.0"
 
-"@feathersjs/express@^4.5.10", "@feathersjs/express@^4.5.9":
+"@feathersjs/express@^4.5.10":
   version "4.5.10"
   resolved "https://registry.yarnpkg.com/@feathersjs/express/-/express-4.5.10.tgz#7a8c6ce2b3eae97b94b85e165be8cca8cc2a7c00"
   integrity sha512-boNMQakPoX/7D0atO9cEq2WOkIt9v4GFjFSUdqpQIJwbCU+FKh9S6TySuIMkVDIeIIv7tp8byywVcaZoejUJZA==
