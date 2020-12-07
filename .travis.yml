@@ -4,7 +4,7 @@ services:
     - postgresql
 
 node_js:
-    - "12"
+    - "14"
 
 before_script:
     - psql -c 'create database spms;' -U postgres
