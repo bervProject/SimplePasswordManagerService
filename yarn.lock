@@ -334,16 +334,16 @@
     grant-profile "^0.0.11"
     lodash "^4.17.20"
 
-"@feathersjs/authentication@^4.5.10":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@feathersjs/authentication/-/authentication-4.5.10.tgz#c134f73da8b7ec3e125858ebe34d9b0dab5a9058"
-  integrity sha512-4YfgDfP2GzzW2D76KA5CyHqgCDCJIzZKHKKv55FxgSLs/vOKfufkCMVreOanoRN9eul3Fj6TCbrPT6+QUc+XkQ==
+"@feathersjs/authentication@^4.5.10", "@feathersjs/authentication@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@feathersjs/authentication/-/authentication-4.5.11.tgz#6fa356fedbf877eb1b722d2fa5bc7af349818da2"
+  integrity sha512-zLPbz+NIV6wYLstjZtLfozO7koJyzJTj+GyZYDsIK3N4GDhQc1mqWskuwWQtgeYZVpDdEsxPEohJ/7f576pFQQ==
   dependencies:
-    "@feathersjs/errors" "^4.5.10"
-    "@feathersjs/feathers" "^4.5.10"
-    "@feathersjs/transport-commons" "^4.5.10"
+    "@feathersjs/errors" "^4.5.11"
+    "@feathersjs/feathers" "^4.5.11"
+    "@feathersjs/transport-commons" "^4.5.11"
     "@types/jsonwebtoken" "^8.5.0"
-    debug "^4.2.0"
+    debug "^4.3.1"
     jsonwebtoken "^8.5.1"
     lodash "^4.17.20"
     long-timeout "^0.1.1"
@@ -375,12 +375,12 @@
   dependencies:
     debug "^4.0.0"
 
-"@feathersjs/errors@^4.3.4", "@feathersjs/errors@^4.4.3", "@feathersjs/errors@^4.5.10", "@feathersjs/errors@^4.5.8", "@feathersjs/errors@^4.5.9":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@feathersjs/errors/-/errors-4.5.10.tgz#d85a485aec7aaab0a62b05d4f292c09836d93a3f"
-  integrity sha512-IhPOpvKuyv2qEQG/A62MLbciRxZnjcshX5fgHRUUlPusWsBj/XU/TtVgakZVQiJ6SvprIi/IsGzAAHyquPQMuQ==
+"@feathersjs/errors@^4.3.4", "@feathersjs/errors@^4.4.3", "@feathersjs/errors@^4.5.10", "@feathersjs/errors@^4.5.11", "@feathersjs/errors@^4.5.8", "@feathersjs/errors@^4.5.9":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@feathersjs/errors/-/errors-4.5.11.tgz#419b4dd9b557fe7a87978363175cbd5e06f8b3b9"
+  integrity sha512-KzkUqmaV7/SGK6SM/ILXjMI/EHOGKQE4GgDHCsB4+mcIwb8IZboeHL6IkYjh6MvwjKNDyS728McZvcflDGn/fA==
   dependencies:
-    debug "^4.2.0"
+    debug "^4.3.1"
 
 "@feathersjs/errors@^4.5.11":
   version "4.5.11"
@@ -402,13 +402,13 @@
     lodash "^4.17.20"
     uberproto "^2.0.6"
 
-"@feathersjs/feathers@^4.5.10", "@feathersjs/feathers@^4.5.2", "@feathersjs/feathers@^4.5.8", "@feathersjs/feathers@^4.5.9":
-  version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@feathersjs/feathers/-/feathers-4.5.10.tgz#bef3b9a2362503b23ca8292426c494725f2192fa"
-  integrity sha512-7NURB+Rc/CeoBmPFaCc6BCAlgxrJUbvhBYDzG4+koLaw9kAabbqhEOfb/KyqVQodbIWDFQjWS/IXYxjNYlrWeg==
+"@feathersjs/feathers@^4.5.10", "@feathersjs/feathers@^4.5.11", "@feathersjs/feathers@^4.5.2", "@feathersjs/feathers@^4.5.8", "@feathersjs/feathers@^4.5.9":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@feathersjs/feathers/-/feathers-4.5.11.tgz#98999fe3857896bd15a676d4660dd92fe22481c4"
+  integrity sha512-13zorhzi9eOwAW+l3oT4K8+CGCljpd9yPkx1XOZZyG5J1RSENWpPhgJ5Oe+qWw6Iqk768UBYp3+W1hLCQa6t2g==
   dependencies:
-    "@feathersjs/commons" "^4.5.10"
-    debug "^4.2.0"
+    "@feathersjs/commons" "^4.5.11"
+    debug "^4.3.1"
     events "^3.2.0"
     uberproto "^2.0.6"
 
