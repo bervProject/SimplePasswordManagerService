@@ -80,7 +80,7 @@
     "axios": "^0.21.1",
     "cross-env": "^7.0.3",
     "jest": "^25.5.4",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "prettier-plugin-packagejson": "^2.2.9",
     "shx": "^0.3.3",
