@@ -70,7 +70,7 @@
     "@types/cls-hooked": "^4.3.1",
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.9",
-    "@types/jest": "^26.0.19",
+    "@types/jest": "^26.0.20",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/nodemailer": "^6.4.0",
     "@types/sequelize": "^4.28.9",
