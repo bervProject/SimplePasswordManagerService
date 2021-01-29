@@ -2,9 +2,9 @@
 
 ## Build Status
 
-|                                                                               Travis                                                                                |                                                                                  Codecov                                                                                   |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![Build Status](https://travis-ci.com/bervProject/SimplePasswordManagerService.svg?branch=master)](https://travis-ci.com/bervProject/SimplePasswordManagerService) | [![codecov](https://codecov.io/gh/bervProject/SimplePasswordManagerService/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/SimplePasswordManagerService) |
+| Github Action | Codecov |
+|:-------------:|:-------:|
+| ![Node.js CI](https://github.com/bervProject/SimplePasswordManagerService/workflows/Node.js%20CI/badge.svg) | [![codecov](https://codecov.io/gh/bervProject/SimplePasswordManagerService/branch/master/graph/badge.svg)](https://codecov.io/gh/bervProject/SimplePasswordManagerService) |
 
 ## About
 
