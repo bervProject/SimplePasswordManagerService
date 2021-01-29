@@ -28,14 +28,13 @@
     "compile": "yarn run clean && tsc",
     "dev": "cross-env NODE_ENV=development ts-node-dev --no-notify src/",
     "fix-lint": "prettier --write .",
-    "jest": "jest  --forceExit",
     "lint": "prettier --check .",
     "migrate": "yarn run compile && node_modules/.bin/sequelize db:migrate --env development",
     "migrate:undo": "yarn run compile && node_modules/.bin/sequelize db:migrate:undo --env development",
     "migrate:undo:all": "yarn run compile && node_modules/.bin/sequelize db:migrate:undo:all --env development",
     "start": "yarn run compile && cross-env NODE_ENV=production node lib/",
     "start:prod": "cross-env NODE_ENV=production node lib/",
-    "test": "yarn run compile && yarn run jest"
+    "test": "jest --forceExit"
   },
   "dependencies": {
     "@feathersjs/authentication": "^4.5.11",
@@ -79,15 +78,15 @@
     "@types/validator": "^13.1.3",
     "axios": "^0.21.1",
     "cross-env": "^7.0.3",
-    "jest": "^25.5.4",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "prettier-plugin-packagejson": "^2.2.9",
     "shx": "^0.3.3",
-    "ts-jest": "^25.5.1",
+    "ts-jest": "^26.5.0",
     "ts-node-dev": "^1.1.1",
     "tslint": "^6.1.3",
-    "typescript": "^3.9.7"
+    "typescript": "^4.1.3"
   },
   "engines": {
     "node": "^12.0.0 || ^14.0.0",
