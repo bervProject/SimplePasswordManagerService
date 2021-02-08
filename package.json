@@ -47,7 +47,7 @@
     "@feathersjs/express": "^4.5.11",
     "@feathersjs/feathers": "^4.5.11",
     "@feathersjs/socketio": "^4.5.11",
-    "aws-sdk": "^2.838.0",
+    "aws-sdk": "^2.839.0",
     "cls-hooked": "^4.2.2",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -66,7 +66,7 @@
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.33",
-    "@types/cls-hooked": "^4.3.2",
+    "@types/cls-hooked": "^4.3.3",
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.9",
     "@types/jest": "^26.0.20",

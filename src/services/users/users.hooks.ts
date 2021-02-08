@@ -1,8 +1,7 @@
 import * as feathersAuthentication from "@feathersjs/authentication";
 import * as local from "@feathersjs/authentication-local";
 import { HookContext } from "@feathersjs/feathers";
-// Don't remove this comment. It's needed to format import lines nicely.
-import hook from "feathers-advance-hook";
+import { userAuditHook } from "@bervproject/feathers-advance-hook";
 import {
   disallow,
   iff,
@@ -12,7 +11,6 @@ import {
 } from "feathers-hooks-common";
 
 const { authenticate } = feathersAuthentication.hooks;
-const userAuditHook = hook.userAuditHook;
 const { hashPassword, protect } = local.hooks;
 
 const hashWhenAvailable = (context: HookContext) => {
