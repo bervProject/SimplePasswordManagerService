@@ -6,4 +6,6 @@ RUN yarn
 RUN rm -f .npmrc
 COPY . .
 RUN yarn compile
+RUN adduser -D spms
+USER spms
 CMD ["yarn", "start:prod"]
