@@ -3,6 +3,7 @@ ARG NODE_AUTH_TOKEN
 WORKDIR /app
 COPY package.json yarn.lock .npmrc ./
 RUN yarn
+COPY . .
 RUN yarn compile
 
 FROM node:lts-alpine as runtime
