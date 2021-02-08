@@ -45,11 +45,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://npm.pkg.github.com/
           always-auth: true
-      - run: yarn
-      - run: yarn test
+      - name: Build & Test
+        run: |
+          yarn
+          yarn test
+          yarn compile
         env:
           NODE_ENV: github
-      - run: bash <(curl -s https://codecov.io/bash)
+      - name: Codecov
+        run: bash <(curl -s https://codecov.io/bash)
   docker-push:
     # Ensure test job passes before pushing image.
     needs: build
