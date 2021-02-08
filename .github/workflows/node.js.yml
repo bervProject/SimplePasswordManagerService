@@ -12,6 +12,7 @@ on:
 env:
   # TODO: Change variable to your image's name.
   IMAGE_NAME: spms
+  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
