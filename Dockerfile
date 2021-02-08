@@ -1,5 +1,5 @@
 FROM node:lts-alpine as build
-ARG NPM_TOKEN
+ARG NODE_AUTH_TOKEN
 WORKDIR /usr/src/app
 COPY package.json yarn.lock .npmrc ./
 RUN yarn
