@@ -782,10 +782,10 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/cls-hooked@^4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@types/cls-hooked/-/cls-hooked-4.3.2.tgz#488addb97a9cedf5f298991942eb35b85870b0db"
-  integrity sha512-xAVYmdkaZzDrOGQMK4J1OwyPB+E/VuOFUfKBSGYK/3RE9XsAoyCDUPyglBt9Ve/RxM24XiYBg8Cvg+nHfSui/A==
+"@types/cls-hooked@^4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@types/cls-hooked/-/cls-hooked-4.3.3.tgz#c09e2f8dc62198522eaa18a5b6b873053154bd00"
+  integrity sha512-gNstDTb/ty5h6gJd6YpSPgsLX9LmRpaKJqGFp7MRlYxhwp4vXXKlJ9+bt1TZ9KbVNXE+Mbxy2AYXcpY21DDtJw==
   dependencies:
     "@types/node" "*"
 
