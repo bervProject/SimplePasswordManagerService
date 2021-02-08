@@ -13,6 +13,7 @@ env:
   # TODO: Change variable to your image's name.
   IMAGE_NAME: spms
   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  HEROKU_APP_NAME: spms-berv
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -91,10 +92,10 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.10.9 # This is the action
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "spms-berv" #Must be unique in Heroku
+          heroku_app_name: "" #Must be unique in Heroku
           heroku_email: "bervianto.leo@gmail.com"
           justlogin: true
       - name: Heroku Container Login
         run: heroku container:login
       - name: Push image & Release
-        run: heroku container:push web --arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN} && heroku container:release web
+        run: heroku container:push web --app=${HEROKU_APP_NAME} --arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN} && heroku container:release web --app=${HEROKU_APP_NAME}
