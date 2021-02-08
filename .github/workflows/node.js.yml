@@ -54,13 +54,19 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: https://npm.pkg.github.com/
+          always-auth: true
       - name: Run tests
         run: |
           if [ -f docker-compose.test.yml ]; then
               docker-compose --file docker-compose.test.yml build
               docker-compose --file docker-compose.test.yml run sut
           else
-              docker build . --file Dockerfile --build-arg GITHUB_AUTH_TOKEN=$NODE_AUTH_TOKEN
+              docker build . --file Dockerfile
           fi
   docker-push:
     # Ensure test job passes before pushing image.
@@ -69,8 +75,14 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: https://npm.pkg.github.com/
+          always-auth: true
       - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg GITHUB_AUTH_TOKEN=$NODE_AUTH_TOKEN
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
       - name: Push image
