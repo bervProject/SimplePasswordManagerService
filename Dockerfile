@@ -13,7 +13,6 @@ COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/lib /app/lib
 COPY --from=build /app/config /app/config
 COPY --from=build /app/public /app/public
-RUN ls
 RUN adduser -D spms
 USER spms
 CMD ["yarn", "start:prod"]
