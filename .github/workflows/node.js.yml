@@ -98,4 +98,8 @@ jobs:
       - name: Heroku Container Login
         run: heroku container:login
       - name: Push image & Release
-        run: heroku container:push web --app=${HEROKU_APP_NAME} --arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN} && heroku container:release web --app=${HEROKU_APP_NAME}
+        run: |
+          HEROKU_IMAGE=registry.heroku.com/$HEROKU_APP_NAME/web
+          docker tag $IMAGE_NAME $HEROKU_IMAGE
+          docker push $HEROKU_IMAGE
+          heroku container:release web --app=${HEROKU_APP_NAME}
