@@ -37,6 +37,7 @@
     "test": "jest --forceExit"
   },
   "dependencies": {
+    "@bervproject/feathers-advance-hook": "^1.0.2",
     "@feathersjs/authentication": "^4.5.11",
     "@feathersjs/authentication-jwt": "^2.0.10",
     "@feathersjs/authentication-local": "^4.5.11",
@@ -50,7 +51,6 @@
     "cls-hooked": "^4.2.2",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
-    "feathers-advance-hook": "^0.0.8",
     "feathers-hooks-common": "^5.0.4",
     "feathers-memory": "^4.1.0",
     "feathers-sequelize": "^6.2.0",
