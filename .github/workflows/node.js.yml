@@ -95,8 +95,10 @@ jobs:
           heroku_app_name: "" #Must be unique in Heroku
           heroku_email: "bervianto.leo@gmail.com"
           justlogin: true
-      - name: Heroku Container Login
-        run: heroku container:login
+      - name: Heroku Container Login & Update
+        run: |
+          heroku update
+          heroku container:login
       - name: Push image & Release
         run: |
           HEROKU_IMAGE=registry.heroku.com/$HEROKU_APP_NAME/web
