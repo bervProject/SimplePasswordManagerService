@@ -81,16 +81,19 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
       - uses: akhileshns/heroku-deploy@v3.10.9 # This is the action
+        if: ${{ github.ref == 'refs/heads/master' }}
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "" #Must be unique in Heroku
           heroku_email: "bervianto.leo@gmail.com"
           justlogin: true
       - name: Heroku Container Login & Update
+        if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           heroku update
           heroku container:login
       - name: Push image & Release
+        if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           HEROKU_IMAGE=registry.heroku.com/$HEROKU_APP_NAME/web
           docker tag $IMAGE_NAME $HEROKU_IMAGE
