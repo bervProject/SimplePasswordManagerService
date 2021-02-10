@@ -16,7 +16,7 @@ env:
   HEROKU_APP_NAME: spms-berv
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     services:
       # Label used to access the service container
       postgres:
@@ -54,10 +54,19 @@ jobs:
           NODE_ENV: github
       - name: Codecov
         run: bash <(curl -s https://codecov.io/bash)
+  docker-build:
+    # Ensure test job passes before pushing image.
+    needs: build
+    runs-on: ubuntu-20.04
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
   docker-push:
     # Ensure test job passes before pushing image.
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
