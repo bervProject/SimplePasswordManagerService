@@ -73,9 +73,17 @@ jobs:
         run: |
           docker build . --file api.Dockerfile --tag $IMAGE_NAME_API --build-arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
           docker build . --file frontend.Dockerfile --tag $IMAGE_NAME_UI
+      - name: Docker Compose Test
+        run: |
+          docker-compose up -d
+          # call API
+          curl http://localhost:5000
+          # call UI
+          curl http://localhost:8000
+          docker-compose down
   docker-push:
     # Ensure test job passes before pushing image.
-    needs: build
+    needs: docker-build
     runs-on: ubuntu-20.04
     if: github.event_name == 'push'
     steps:
