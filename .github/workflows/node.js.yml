@@ -118,15 +118,25 @@ jobs:
           heroku_app_name: "" #Must be unique in Heroku
           heroku_email: "bervianto.leo@gmail.com"
           justlogin: true
-      - name: Heroku Container Login & Update
+      - name: Heroku Container Login, Update & Push
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           heroku update
           heroku container:login
-      - name: Push image & Release
-        if: ${{ github.ref == 'refs/heads/master' }}
-        run: |
           HEROKU_IMAGE=registry.heroku.com/$HEROKU_APP_NAME/web
           docker tag $IMAGE_NAME_API $HEROKU_IMAGE
           docker push $HEROKU_IMAGE
+          heroku container:release web --app=${HEROKU_APP_NAME}
+      - name: Install doctl
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_TOKEN }}
+      - name: Push to DO
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          doctl registry login
+          DO_IMAGE=registry.digitalocean.com/$IMAGE_NAME_UI
+          docker tag $IMAGE_NAME_UI $DO_IMAGE
+          docker push $DO_IMAGE
           heroku container:release web --app=${HEROKU_APP_NAME}
