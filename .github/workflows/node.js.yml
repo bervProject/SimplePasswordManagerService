@@ -52,9 +52,14 @@ jobs:
           yarn bootstrap
           yarn lint
           yarn test
+        env:
+          NODE_ENV: test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/spms
+      - name: Build
+        run: |
           yarn build
         env:
-          NODE_ENV: github
+          NODE_ENV: production
       - name: Codecov
         run: bash <(curl -s https://codecov.io/bash)
   docker-build:
