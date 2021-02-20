@@ -1,0 +1,20 @@
+{
+  "host": "HOST",
+  "postgres": "DATABASE_URL",
+  "port": "PORT",
+  "authentication": {
+    "oauth": {
+      "redirect": "/",
+      "google": {
+        "key": "GOOGLE_KEY",
+        "secret": "GOOGLE_SECRET",
+        "scope": ["openid", "profile", "email"],
+        "nonce": true
+      },
+      "github": {
+        "key": "GITHUB_ID",
+        "secret": "GITHUB_SECRET"
+      }
+    }
+  }
+}

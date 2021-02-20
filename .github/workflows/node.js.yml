@@ -10,10 +10,11 @@ on:
     pull_request:
         branches: [master]
 env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: spms
+  IMAGE_NAME_API: spms
+  IMAGE_NAME_UI: spms-ui
   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   HEROKU_APP_NAME: spms-berv
+  CI: true
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -48,8 +49,10 @@ jobs:
       - name: Build & Test
         run: |
           yarn
+          yarn bootstrap
+          yarn lint
           yarn test
-          yarn compile
+          yarn build
         env:
           NODE_ENV: github
       - name: Codecov
@@ -62,7 +65,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
+        run: |
+          docker build . --file api.Dockerfile --tag $IMAGE_NAME_API --build-arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
+          docker build . --file frontend.Dockerfile --tag $IMAGE_NAME_UI
   docker-push:
     # Ensure test job passes before pushing image.
     needs: build
@@ -71,24 +76,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
+        run: |
+          docker build . --file api.Dockerfile --tag $IMAGE_NAME_API --build-arg NODE_AUTH_TOKEN=${NODE_AUTH_TOKEN}
+          docker build . --file frontend.Dockerfile --tag $IMAGE_NAME_UI
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
       - name: Push image
         run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID_API=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME_API
+          IMAGE_ID_UI=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME_UI
           # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          IMAGE_ID_API=$(echo $IMAGE_ID_API | tr '[A-Z]' '[a-z]')
+          IMAGE_ID_UI=$(echo $IMAGE_ID_UI | tr '[A-Z]' '[a-z]')
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
+          echo IMAGE_ID_API=$IMAGE_ID_API
+          echo IMAGE_ID_UI=$IMAGE_ID_UI
           echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker tag $IMAGE_NAME_API $IMAGE_ID_API:$VERSION
+          docker tag $IMAGE_NAME_UI $IMAGE_ID_UI:$VERSION
+          docker push $IMAGE_ID_API:$VERSION
+          docker push $IMAGE_ID_UI:$VERSION
       - uses: akhileshns/heroku-deploy@v3.10.9 # This is the action
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
@@ -105,6 +117,6 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           HEROKU_IMAGE=registry.heroku.com/$HEROKU_APP_NAME/web
-          docker tag $IMAGE_NAME $HEROKU_IMAGE
+          docker tag $IMAGE_NAME_API $HEROKU_IMAGE
           docker push $HEROKU_IMAGE
           heroku container:release web --app=${HEROKU_APP_NAME}
