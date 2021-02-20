@@ -137,6 +137,6 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           doctl registry login
-          DO_IMAGE=registry.digitalocean.com/$IMAGE_NAME_UI
+          DO_IMAGE=registry.digitalocean.com/$IMAGE_NAME_UI/$IMAGE_NAME_UI
           docker tag $IMAGE_NAME_UI $DO_IMAGE
           docker push $DO_IMAGE
