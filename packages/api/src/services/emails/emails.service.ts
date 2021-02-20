@@ -9,6 +9,7 @@ import hooks from "./emails.hooks";
 // Add this service to the service type index
 declare module "../../declarations" {
   interface ServiceTypes {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     emails: Emails & ServiceAddons<any>;
   }
 }
@@ -19,7 +20,7 @@ export default function (app: Application): void {
     paginate: app.get("paginate"),
   };
 
-  let transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     SES: new aws.SES(),
   });
   // Initialize our service with any options it requires

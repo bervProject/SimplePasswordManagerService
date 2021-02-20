@@ -21,9 +21,11 @@ export default {
   before: {
     all: [
       softDelete({
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         deletedQuery: async (context) => {
           return { deletedFlag: false, deletedAt: null };
         },
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         removeData: async (context) => {
           return { deletedFlag: true, deletedAt: new Date() };
         },

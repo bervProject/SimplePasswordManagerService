@@ -10,5 +10,5 @@ export default Object.assign(
     Sequelize,
     sequelize,
   },
-  models
+  models,
 );

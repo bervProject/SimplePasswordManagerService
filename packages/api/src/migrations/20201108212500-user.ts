@@ -3,7 +3,7 @@ import { QueryInterface, DataTypes } from "sequelize";
 /**
  * function that sequelize-cli runs if you want to add this migration to your database
  * */
-export async function up(query: QueryInterface) {
+export async function up(query: QueryInterface): Promise<void> {
   try {
     return query.createTable("users", {
       id: {
@@ -78,7 +78,7 @@ export async function up(query: QueryInterface) {
 /**
  * function that sequelize-cli runs if you want to remove this migration from your database
  * */
-export async function down(query: QueryInterface) {
+export async function down(query: QueryInterface): Promise<void> {
   try {
     return query.dropTable("users");
   } catch (e) {

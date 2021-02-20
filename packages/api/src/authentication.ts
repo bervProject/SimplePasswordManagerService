@@ -14,6 +14,7 @@ import { Application } from "./declarations";
 
 declare module "./declarations" {
   interface ServiceTypes {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     authentication: AuthenticationService & ServiceAddons<any>;
   }
 }
@@ -33,6 +34,7 @@ class MyAuthenticationService extends AuthenticationService {
 }
 
 class GoogleStrategy extends OAuthStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async getEntityData(profile: OAuthProfile, existing: any, params: Params) {
     params.provider = undefined;
     // this will set 'googleId'
@@ -46,8 +48,9 @@ class GoogleStrategy extends OAuthStrategy {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async getEntityQuery(profile: OAuthProfile, params: Params) {
-    let query = {
+    const query = {
       $or: [
         { [`${this.name}Id`]: profile.sub || profile.id },
         { email: profile.email },
@@ -58,6 +61,7 @@ class GoogleStrategy extends OAuthStrategy {
 }
 
 class GitHubStrategy extends OAuthStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async getEntityData(profile: OAuthProfile, existing: any, params: Params) {
     params.provider = undefined;
     const baseData = await super.getEntityData(profile, existing, params);
@@ -73,8 +77,9 @@ class GitHubStrategy extends OAuthStrategy {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async getEntityQuery(profile: OAuthProfile, params: Params) {
-    let query = {
+    const query = {
       $or: [
         { [`${this.name}Id`]: profile.sub || profile.id },
         { email: profile.email },
@@ -84,7 +89,7 @@ class GitHubStrategy extends OAuthStrategy {
   }
 }
 
-export default (app: Application) => {
+export default (app: Application): void => {
   const authentication = new MyAuthenticationService(app);
 
   authentication.register("jwt", new JWTStrategy());

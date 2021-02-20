@@ -13,10 +13,11 @@ export default function (): Hook {
     // This debugs the service call and a stringified version of the hook context
     // You can customize the message (and logger) to your needs
     logger.debug(
-      `${context.type} app.service('${context.path}').${context.method}()`
+      `${context.type} app.service('${context.path}').${context.method}()`,
     );
 
     if (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       typeof (context as any).toJSON === "function" &&
       logger.level === "debug"
     ) {

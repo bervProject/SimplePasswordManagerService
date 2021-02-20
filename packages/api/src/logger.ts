@@ -1,5 +1,5 @@
 import { createLogger, format, transports } from "winston";
-const getNamespace = require("cls-hooked").getNamespace;
+import { getNamespace } from "cls-hooked";
 
 const myFormat = format.printf(({ level, message, timestamp }) => {
   const loggerNamespace = getNamespace("logger");

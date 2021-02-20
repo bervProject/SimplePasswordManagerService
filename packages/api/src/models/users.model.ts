@@ -1,11 +1,32 @@
 // See http://docs.sequelizejs.com/en/latest/docs/models-definition/
 // for more of what you can do here.
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize, DataTypes, ModelCtor, Model, Optional } from "sequelize";
 import { Application } from "../declarations";
 
-export default function (app: Application) {
+export interface IUserAttribute {
+  id: string;
+  name: string;
+  profilePicture: string | null;
+  googleId: string | null;
+  githubId: string | null;
+  email: string;
+  password: string;
+  role: string;
+  createdBy: string;
+  updatedBy: string | null;
+  deletedFlag: boolean;
+  deletedAt: Date;
+}
+
+export type IUserAttributeCreation = Optional<IUserAttribute, "id">;
+
+export default function (
+  app: Application,
+): ModelCtor<Model<IUserAttribute, IUserAttributeCreation>> {
   const sequelizeClient: Sequelize = app.get("sequelizeClient");
-  const users = sequelizeClient.define(
+  const users = sequelizeClient.define<
+    Model<IUserAttribute, IUserAttributeCreation>
+  >(
     "users",
     {
       id: {
@@ -62,14 +83,15 @@ export default function (app: Application) {
     },
     {
       hooks: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         beforeCount(options: any) {
           options.raw = true;
         },
       },
-    }
+    },
   );
 
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (users as any).associate = function (models: any) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
