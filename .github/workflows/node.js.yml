@@ -74,9 +74,9 @@ jobs:
           docker-compose build
           docker-compose up -d
           # call API
-          curl http://localhost:5000 --retry-connrefused --retry-delay 5 --retry-max-time 60
+          curl http://localhost:5000 --retry-all-errors --retry-delay 5 --retry-max-time 60
           # call UI
-          curl http://localhost:8000 --retry-connrefused --retry-delay 5 --retry-max-time 60
+          curl http://localhost:8000 --retry-all-errors --retry-delay 5 --retry-max-time 60
           docker-compose down
   docker-push:
     # Ensure test job passes before pushing image.
