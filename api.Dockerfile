@@ -1,7 +1,7 @@
 FROM node:lts-alpine as build
 ARG NODE_AUTH_TOKEN
 WORKDIR /app
-COPY packages/api/package.json packages/api/yarn.lock .npmrc ./
+COPY packages/api/package.json .npmrc ./
 RUN yarn
 COPY packages/api .
 RUN rm -f .npmrc

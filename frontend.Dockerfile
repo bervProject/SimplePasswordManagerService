@@ -1,7 +1,7 @@
 # build stage
 FROM node:lts-alpine as build-stage
 WORKDIR /app
-COPY packages/frontend/package.json packages/frontend/yarn.lock ./
+COPY packages/frontend/package.json ./
 RUN yarn
 COPY packages/frontend .
 RUN yarn build
