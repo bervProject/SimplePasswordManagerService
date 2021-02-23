@@ -10,5 +10,8 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "test:frontend": "lerna run --scope @bervproject/spms-ui test"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
