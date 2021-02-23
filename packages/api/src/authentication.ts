@@ -33,7 +33,19 @@ class MyAuthenticationService extends AuthenticationService {
   }
 }
 
-class GoogleStrategy extends OAuthStrategy {
+class BaseOAuthStrategy extends OAuthStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async getEntityQuery(profile: OAuthProfile, params: Params) {
+    return {
+      $or: [
+        { [`${this.name}Id`]: profile.sub || profile.id },
+        { email: profile.email },
+      ],
+    };
+  }
+}
+
+class GoogleStrategy extends BaseOAuthStrategy {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async getEntityData(profile: OAuthProfile, existing: any, params: Params) {
     params.provider = undefined;
@@ -47,20 +59,9 @@ class GoogleStrategy extends OAuthStrategy {
       email: profile.email,
     };
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async getEntityQuery(profile: OAuthProfile, params: Params) {
-    const query = {
-      $or: [
-        { [`${this.name}Id`]: profile.sub || profile.id },
-        { email: profile.email },
-      ],
-    };
-    return query;
-  }
 }
 
-class GitHubStrategy extends OAuthStrategy {
+class GitHubStrategy extends BaseOAuthStrategy {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async getEntityData(profile: OAuthProfile, existing: any, params: Params) {
     params.provider = undefined;
@@ -75,17 +76,6 @@ class GitHubStrategy extends OAuthStrategy {
       // The user email address (if available)
       email: profile.email,
     };
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async getEntityQuery(profile: OAuthProfile, params: Params) {
-    const query = {
-      $or: [
-        { [`${this.name}Id`]: profile.sub || profile.id },
-        { email: profile.email },
-      ],
-    };
-    return query;
   }
 }
 

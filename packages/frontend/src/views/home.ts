@@ -55,9 +55,9 @@ export default class Home extends Vue {
         email: this.username,
         password: this.password,
       })
-      .then((result) => {
+      .then((resultResponse) => {
         this.submitting = false;
-        console.log(result.data);
+        console.log(resultResponse.data);
       })
       .catch((error) => {
         this.submitting = false;
