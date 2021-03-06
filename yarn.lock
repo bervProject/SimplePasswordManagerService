@@ -884,15 +884,15 @@
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
 "@bervproject/feathers-advance-hook@^1.0.2":
-  version "1.0.2"
-  resolved "https://npm.pkg.github.com/download/@bervproject/feathers-advance-hook/1.0.2/a0b2b1fbe34f0df968fa6b5cf261dba7cf6e635fb83c75932fa021b8177e4719#ea8b635e934f4d8624ea1bb1e92f24f4ad366a36"
-  integrity sha512-83MVIyOyU4HBpLXKISxRHnnXNQ/yIl/Lnvr3qQPy9GEuMu+2NA0YTbnlNKXKVx19bsZMGZAPUnphNYHYg7zfiA==
+  version "1.0.3"
+  resolved "https://npm.pkg.github.com/download/@bervproject/feathers-advance-hook/1.0.3/58b0dc39f03ca9e657fe3eec76f17323fe46a83d0b147965a30bb22905e4d864#963988ab834a9dd2bffee40cecc6a97cccafbfb7"
+  integrity sha512-MakkK9C82yMWG3KvOLAKS400VQpF8HDVu5ELF90thyxQwBnM8aIC9qe/YoSjkXTrt/1TPv+MDL0fgxVT4vXEPA==
   dependencies:
     "@feathersjs/errors" "^4.5.11"
     "@feathersjs/feathers" "^4.5.11"
-    "@google-cloud/storage" "^5.7.4"
+    "@google-cloud/storage" "^5.8.0"
     dist "^0.1.2"
-    mime-types "^2.1.28"
+    mime-types "^2.1.29"
     uuid "^8.3.2"
 
 "@cnakazawa/watch@^1.0.3":
@@ -1194,10 +1194,10 @@
   resolved "https://registry.npmjs.org/@google-cloud/promisify/-/promisify-2.0.3.tgz#f934b5cdc939e3c7039ff62b9caaf59a9d89e3a8"
   integrity sha512-d4VSA86eL/AFTe5xtyZX+ePUjE8dIFu2T8zmdeNBSa5/kNgXPCx/o/wbFNHAGLJdGnk1vddRuMESD9HbOC8irw==
 
-"@google-cloud/storage@^5.7.4":
-  version "5.8.0"
-  resolved "https://registry.npmjs.org/@google-cloud/storage/-/storage-5.8.0.tgz#1f580e276f1d453790b382156421d1bcc4bd3f4b"
-  integrity sha512-WOShvBPOfkDXUzXMO+3j8Bzus+PFI9r1Ey9dLG2Zf458/PVuFTtaRWntd9ZiDG8g90zl2LmnA1JkDCreGUKr5g==
+"@google-cloud/storage@^5.8.0":
+  version "5.8.1"
+  resolved "https://registry.yarnpkg.com/@google-cloud/storage/-/storage-5.8.1.tgz#00e627723614bcf97e6e29f9a59ec39339171847"
+  integrity sha512-qP8gCJ2myyMN3JMJN12d82Oo8VBSDO8vO4/x56dtQZX9+WISqcagurntnJVyFX885tIOtS97bsyv8qR1xv6HMg==
   dependencies:
     "@google-cloud/common" "^3.6.0"
     "@google-cloud/paginator" "^3.0.0"
@@ -11447,7 +11447,7 @@ mime-db@1.46.0, "mime-db@>= 1.43.0 < 2":
   resolved "https://registry.npmjs.org/mime-db/-/mime-db-1.46.0.tgz#6267748a7f799594de3cbc8cde91def349661cee"
   integrity sha512-svXaP8UQRZ5K7or+ZmfNhg2xX3yKDMUzqadsSqi4NCH/KomcH75MAMYAGVlvXn4+b/xOPhS3I2uHKRUzvjY7BQ==
 
-mime-types@^2.0.8, mime-types@^2.1.12, mime-types@^2.1.28, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
+mime-types@^2.0.8, mime-types@^2.1.12, mime-types@^2.1.29, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
   version "2.1.29"
   resolved "https://registry.npmjs.org/mime-types/-/mime-types-2.1.29.tgz#1d4ab77da64b91f5f72489df29236563754bb1b2"
   integrity sha512-Y/jMt/S5sR9OaqteJtslsFZKWOIIqMACsJSiHghlCAyhf7jfVYjKBmLiX8OgpWeW+fjJ2b+Az69aPFPkUOY6xQ==
