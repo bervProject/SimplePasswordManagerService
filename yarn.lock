@@ -3225,7 +3225,7 @@
   optionalDependencies:
     vue-loader-v16 "npm:vue-loader@^16.1.0"
 
-"@vue/cli-shared-utils@^4.5.11", "@vue/cli-shared-utils@^4.5.12":
+"@vue/cli-shared-utils@^4.5.12":
   version "4.5.12"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-4.5.12.tgz#0e0693d488336d284ffa658ff33b1ea22927d065"
   integrity sha512-qnIQPJ4XckMoqYh9fJ0Y91QKMIb4Hiibrm9+k4E15QHpk5RaokuOpf10SsOr2NLPCXSWsHOLo3hduZSwHPGY/Q==
@@ -3948,9 +3948,9 @@ autoprefixer@^9.8.6:
     postcss-value-parser "^4.1.0"
 
 aws-sdk@^2.848.0:
-  version "2.868.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.868.0.tgz#2c31f5d788e4487ac29f51498e46cc91b0d1de6a"
-  integrity sha512-ZayPsA/ycaAXqqa2oDyf8iUpl1WOLODZS8ZdvYj77L5owMQm0XC7yqiD+WHj9nToUECF9VAD+AKQMIN6695tVQ==
+  version "2.874.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.874.0.tgz#2f1f1ff232e473ddf2a398b276c44f24e5828e2c"
+  integrity sha512-YF2LYIfIuywFTzojGwwUwAiq+pgSM3IWRF/uDoJa28xRQSfYD1uMeZLCqqMt+L0/yxe2UJDYKTVPhB9eEqOxEQ==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
