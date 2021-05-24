@@ -28,7 +28,7 @@
     "compile": "tsc",
     "build": "yarn run clean && tsc",
     "dev": "cross-env NODE_ENV=development ts-node-dev --no-notify src/",
-    "fix-lint": "eslint --quite --fix \"src/**/*\" \"test/**/*\"",
+    "fix-lint": "eslint --quiet --fix \"src/**/*\" \"test/**/*\"",
     "lint": "eslint \"src/**/*\" \"test/**/*\"",
     "migrate": "yarn run build && node_modules/.bin/sequelize db:migrate --env development",
     "migrate:undo": "yarn run build && node_modules/.bin/sequelize db:migrate:undo --env development",

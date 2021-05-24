@@ -18,9 +18,12 @@ export default function (app: Application): void {
   const options = {
     paginate: app.get("paginate"),
   };
-  const ses = new aws.SESClient({ apiVersion: "2010-12-01", region: app.get("sesregion") || "us-east-1" });
+  const ses = new aws.SESClient({
+    apiVersion: "2010-12-01",
+    region: app.get("sesregion") || "us-east-1",
+  });
   const transporter = nodemailer.createTransport({
-    SES: { ses, aws }
+    SES: { ses, aws },
   });
   // Initialize our service with any options it requires
   app.use("/emails", new Emails(options, app, transporter));
