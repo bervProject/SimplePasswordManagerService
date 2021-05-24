@@ -1,6 +1,6 @@
 // Initializes the `emails` service on path `/emails`
 import { ServiceAddons } from "@feathersjs/feathers";
-import aws from "aws-sdk";
+import * as aws from "@aws-sdk/client-ses";
 import nodemailer from "nodemailer";
 import { Application } from "../../declarations";
 import { Emails } from "./emails.class";
@@ -15,13 +15,12 @@ declare module "../../declarations" {
 }
 
 export default function (app: Application): void {
-  aws.config.update({ region: "us-east-1" });
   const options = {
     paginate: app.get("paginate"),
   };
-
+  const ses = new aws.SESClient({ apiVersion: "2010-12-01", region: app.get("sesregion") || "us-east-1" });
   const transporter = nodemailer.createTransport({
-    SES: new aws.SES(),
+    SES: { ses, aws }
   });
   // Initialize our service with any options it requires
   app.use("/emails", new Emails(options, app, transporter));
