@@ -128,15 +128,15 @@ jobs:
           docker tag $IMAGE_NAME_API $HEROKU_IMAGE
           docker push $HEROKU_IMAGE
           heroku container:release web --app=${HEROKU_APP_NAME}
-      - name: Install doctl
-        if: ${{ github.ref == 'refs/heads/master' }}
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DO_TOKEN }}
-      - name: Push to DO
-        if: ${{ github.ref == 'refs/heads/master' }}
-        run: |
-          doctl registry login
-          DO_IMAGE=registry.digitalocean.com/$IMAGE_NAME_UI/$IMAGE_NAME_UI
-          docker tag $IMAGE_NAME_UI $DO_IMAGE
-          docker push $DO_IMAGE
+#      - name: Install doctl
+#        if: ${{ github.ref == 'refs/heads/master' }}
+#        uses: digitalocean/action-doctl@v2
+#        with:
+#          token: ${{ secrets.DO_TOKEN }}
+#      - name: Push to DO
+#        if: ${{ github.ref == 'refs/heads/master' }}
+#        run: |
+#          doctl registry login
+#          DO_IMAGE=registry.digitalocean.com/$IMAGE_NAME_UI/$IMAGE_NAME_UI
+#          docker tag $IMAGE_NAME_UI $DO_IMAGE
+#          docker push $DO_IMAGE
