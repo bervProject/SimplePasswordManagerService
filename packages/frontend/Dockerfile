@@ -1,9 +1,9 @@
 # build stage
 FROM node:lts-alpine as build-stage
 WORKDIR /app
-COPY packages/frontend/package.json ./
+COPY package.json ./
 RUN yarn
-COPY packages/frontend .
+COPY . .
 RUN yarn build
 
 # production stage

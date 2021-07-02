@@ -2,8 +2,7 @@ version: '3'
 services:
   backend:
     build:
-      dockerfile: api.Dockerfile
-      context: .
+      context: packages/api
       args:
         - NODE_AUTH_TOKEN
     image: spms-api:latest
@@ -25,8 +24,7 @@ services:
       POSTGRES_DB: spms
   frontend:
     build:
-      context: .
-      dockerfile: frontend.Dockerfile
+      context: packages/frontend
     image: spms:latest
     ports:
       - "8000:80"

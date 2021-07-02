@@ -4,11 +4,11 @@
 name: Node.js CI
 on:
     push:
-        branches: [master]
+        branches: [master, production]
         tags:
           - v*
     pull_request:
-        branches: [master]
+        branches: [master, production]
 env:
   IMAGE_NAME_API: spms
   IMAGE_NAME_UI: spms-ui
@@ -44,8 +44,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://npm.pkg.github.com/
-          always-auth: true
       - name: Install
         run: |
           yarn --frozen-lockfile
@@ -64,11 +62,29 @@ jobs:
           NODE_ENV: production
       - name: Codecov
         run: bash <(curl -s https://codecov.io/bash)
+  push-api-to-railway:
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Push to Railway
+        run: |
+          npm i -g @railway/cli
+          [[ "${{ github.ref }}" == "refs/heads/production" ]] && RAILWAY_TOKEN="${{secrets.RAILWAY_PROD}}"
+          cd packages/api
+          railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_STG }}
   docker-build:
     # Ensure test job passes before pushing image.
     needs: build
     runs-on: ubuntu-20.04
-    if: github.event_name == 'push'
+    if: github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v2
       - name: Docker Compose Build & Test
@@ -83,7 +99,7 @@ jobs:
           docker-compose down
   docker-push-api:
     # Ensure test job passes before pushing image.
-    needs: docker-build
+    needs: build
     runs-on: ubuntu-20.04
     if: github.event_name == 'push'
     steps:
@@ -109,8 +125,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: api.Dockerfile
+          context: packages/api
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -118,7 +133,7 @@ jobs:
             NODE_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
   docker-push-ui:
     # Ensure test job passes before pushing image.
-    needs: docker-build
+    needs: build
     runs-on: ubuntu-20.04
     if: github.event_name == 'push'
     steps:
@@ -144,8 +159,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: frontend.Dockerfile
+          context: packages/frontend
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
