@@ -7557,15 +7557,15 @@ eslint-plugin-prettier@^4.0.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-vue@^7.12.1:
-  version "7.12.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-7.12.1.tgz#ef6499ce4fe0566659c8e12c71713f5308630a76"
-  integrity sha512-xHf/wCt88qmzqQerjaSteUFGASj7fPreglKD4ijnvoKRkoSJ3/H3kuJE8QFFtc+2wjw6hRDs834HH7vpuTJQzg==
+eslint-plugin-vue@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-8.2.0.tgz#b404bc10e3f43b2b7aad4ebb3b38090a58040202"
+  integrity sha512-cLIdTuOAMXyHeQ4drYKcZfoyzdwdBpH279X8/N0DgmotEI9yFKb5O/cAgoie/CkQZCH/MOmh0xw/KEfS90zY2A==
   dependencies:
-    eslint-utils "^2.1.0"
+    eslint-utils "^3.0.0"
     natural-compare "^1.4.0"
-    semver "^7.3.2"
-    vue-eslint-parser "^7.6.0"
+    semver "^7.3.5"
+    vue-eslint-parser "^8.0.1"
 
 eslint-scope@^4.0.3:
   version "4.0.3"
@@ -7583,6 +7583,14 @@ eslint-scope@^5.1.1:
     esrecurse "^4.3.0"
     estraverse "^4.1.1"
 
+eslint-scope@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-6.0.0.tgz#9cf45b13c5ac8f3d4c50f46a5121f61b3e318978"
+  integrity sha512-uRDL9MWmQCkaFus8RF5K9/L/2fn+80yoW3jkD53l4shjCh26fCtvJGasxjUqP5OT87SYTxCVA3BwTUzuELx9kA==
+  dependencies:
+    esrecurse "^4.3.0"
+    estraverse "^5.2.0"
+
 eslint-scope@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-7.1.0.tgz#c1f6ea30ac583031f203d65c73e723b01298f153"
@@ -7590,13 +7598,6 @@ eslint-scope@^7.1.0:
   dependencies:
     esrecurse "^4.3.0"
     estraverse "^5.2.0"
-
-eslint-utils@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/eslint-utils/-/eslint-utils-2.1.0.tgz#d2de5e03424e707dc10c74068ddedae708741b27"
-  integrity sha512-w94dQYoauyvlDc43XnGB8lU3Zt713vNChgt4EWwhXAP2XkBvndfxF0AgIqKOOasjPIPzj9JqgwkwbCYD0/V3Zg==
-  dependencies:
-    eslint-visitor-keys "^1.1.0"
 
 eslint-utils@^3.0.0:
   version "3.0.0"
@@ -7673,7 +7674,7 @@ espree@^8.0.0:
     acorn-jsx "^5.3.1"
     eslint-visitor-keys "^3.0.0"
 
-espree@^9.2.0, espree@^9.3.0:
+espree@^9.0.0, espree@^9.2.0, espree@^9.3.0:
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/espree/-/espree-9.3.0.tgz#c1240d79183b72aaee6ccfa5a90bc9111df085a8"
   integrity sha512-d/5nCsb0JcqsSEeQzFZ8DH1RmxPcglRWh24EFTlUEmCKoehXGdpsx0RkHDubqUI8LSAIKMQp4r9SzQ3n+sm4HQ==
@@ -17206,7 +17207,7 @@ vue-cli-plugin-vuetify@^2.4.1:
     semver "^7.1.2"
     shelljs "^0.8.3"
 
-vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.6.0:
+vue-eslint-parser@^7.0.0:
   version "7.7.1"
   resolved "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-7.7.1.tgz#db018d6cb5c28f5c62329bc2e98433c8d897afdc"
   integrity sha512-rUGUCKH5rSGTvF9QlxYXi6MyoSATcrTbLwiCqFuFRhaSJLlDYBmsXJ08xIZoLdsUl/OfCC1ibnkj7SWHRTrStQ==
@@ -17215,6 +17216,19 @@ vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.6.0:
     eslint-scope "^5.1.1"
     eslint-visitor-keys "^1.1.0"
     espree "^8.0.0"
+    esquery "^1.4.0"
+    lodash "^4.17.21"
+    semver "^7.3.5"
+
+vue-eslint-parser@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-8.0.1.tgz#25e08b20a414551531f3e19f999902e1ecf45f13"
+  integrity sha512-lhWjDXJhe3UZw2uu3ztX51SJAPGPey1Tff2RK3TyZURwbuI4vximQLzz4nQfCv8CZq4xx7uIiogHMMoSJPr33A==
+  dependencies:
+    debug "^4.3.2"
+    eslint-scope "^6.0.0"
+    eslint-visitor-keys "^3.0.0"
+    espree "^9.0.0"
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.5"
