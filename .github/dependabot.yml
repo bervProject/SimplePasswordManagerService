@@ -1,10 +1,4 @@
 version: 2
-registries:
-  npm-registry-npm-pkg-github-com:
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    username: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_USERNAME}}"
-    password: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_PASSWORD}}"
 
 updates:
 - package-ecosystem: npm
@@ -19,21 +13,3 @@ updates:
   - berviantoleo
   assignees:
   - berviantoleo
-  ignore:
-  - dependency-name: "@vue/cli-plugin-router"
-    versions:
-    - 4.5.12
-  - dependency-name: "@vue/cli-plugin-vuex"
-    versions:
-    - 4.5.12
-  - dependency-name: eslint-config-prettier
-    versions:
-    - 8.1.0
-  - dependency-name: aws-sdk
-    versions:
-    - 2.839.0
-  - dependency-name: "@types/cls-hooked"
-    versions:
-    - 4.3.3
-  registries:
-  - npm-registry-npm-pkg-github-com
