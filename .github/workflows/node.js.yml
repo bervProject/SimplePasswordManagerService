@@ -61,7 +61,7 @@ jobs:
         env:
           NODE_ENV: production
       - name: Codecov
-        run: bash <(curl -s https://codecov.io/bash)
+        uses: codecov/codecov-action@v2
   # push-api-to-railway:
   #   runs-on: ubuntu-20.04
   #   if: ${{ github.event_name == 'push' }}
