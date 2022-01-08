@@ -49,15 +49,14 @@ jobs:
           yarn --frozen-lockfile
           yarn bootstrap
       - name: Lint & Test
-        run: |
-          yarn lint
-          yarn test
+        run: yarn lint
+      - name: Test
+        run: yarn test
         env:
           NODE_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/spms
       - name: Build
-        run: |
-          yarn build
+        run: yarn build
         env:
           NODE_ENV: production
       - name: Codecov
