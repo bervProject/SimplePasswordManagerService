@@ -2,7 +2,6 @@
 // for more of what you can do here.
 import { Sequelize, DataTypes, Model, ModelCtor, Optional } from "sequelize";
 import { Application } from "../declarations";
-import { HookReturn } from "sequelize/types/lib/hooks";
 
 export interface UserPassAttribute {
   id: string;
@@ -48,7 +47,7 @@ export default function (
     {
       hooks: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        beforeCount(options: any): HookReturn {
+        beforeCount(options: any): void {
           options.raw = true;
         },
       },
