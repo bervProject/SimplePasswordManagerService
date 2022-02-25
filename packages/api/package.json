@@ -38,7 +38,7 @@
     "test": "jest --forceExit"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.47.0",
+    "@aws-sdk/client-ses": "^3.52.0",
     "@bervproject/feathers-advance-hook": "^1.1.1",
     "@feathersjs/authentication": "^4.5.12",
     "@feathersjs/authentication-jwt": "^2.0.10",
@@ -55,21 +55,21 @@
     "feathers-hooks-common": "^5.0.6",
     "feathers-memory": "^4.1.0",
     "feathers-sequelize": "^6.3.2",
-    "helmet": "^5.0.1",
+    "helmet": "^5.0.2",
     "multer": "^1.4.4",
     "nodemailer": "^6.7.2",
-    "pg": "^8.7.1",
-    "sequelize": "^6.13.0",
+    "pg": "^8.7.3",
+    "sequelize": "^6.16.3",
     "serve-favicon": "^2.5.0",
     "uuid": "^8.3.2",
-    "winston": "^3.4.0"
+    "winston": "^3.6.0"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.36",
     "@types/cls-hooked": "^4.3.3",
     "@types/compression": "^1.7.2",
     "@types/cors": "^2.8.12",
-    "@types/jsonwebtoken": "^8.5.7",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/nodemailer": "^6.4.4",
     "@types/sequelize": "^4.28.11",
     "@types/serve-favicon": "^2.5.3",
@@ -79,7 +79,7 @@
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.15",
     "prettier-plugin-packagejson": "^2.2.15",
-    "sequelize-cli": "^6.4.0",
+    "sequelize-cli": "^6.4.1",
     "shx": "^0.3.4",
     "ts-node-dev": "^1.1.8"
   },
