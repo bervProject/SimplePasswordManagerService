@@ -7853,9 +7853,9 @@ infer-owner@^1.0.4:
   resolved "https://registry.npmjs.org/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467"
   integrity sha512-IClj+Xz94+d7irH5qRyfJonOdfTzuDaifE6ZPWfx0N0+/ATZCbuTPq2prFl526urkQd90WyUKIh1DfBQ2hMz9A==
 
-inflection@^1.13.1:
+inflection@^1.13.2:
   version "1.13.2"
-  resolved "https://registry.npmjs.org/inflection/-/inflection-1.13.2.tgz#15e8c797c6c3dadf31aa658f8df8a4ea024798b0"
+  resolved "https://registry.yarnpkg.com/inflection/-/inflection-1.13.2.tgz#15e8c797c6c3dadf31aa658f8df8a4ea024798b0"
   integrity sha512-cmZlljCRTBFouT8UzMzrGcVEvkv6D/wBdcdKG7J1QH5cXjtU75Dm+P27v9EKu/Y43UYyCJd1WC4zLebRrC8NBw==
 
 inflight@^1.0.4:
@@ -11950,14 +11950,15 @@ sequelize-pool@^7.1.0:
   integrity sha512-G9c0qlIWQSK29pR/5U2JF5dDQeqqHRragoyahj/Nx4KOOQ3CPPfzxnfqFPCSB7x5UgjOgnZ61nSxz+fjDpRlJg==
 
 sequelize@^6.16.3:
-  version "6.16.3"
-  resolved "https://registry.npmjs.org/sequelize/-/sequelize-6.16.3.tgz#5ff8a3c70d535c7c0f2b5a8ae128f7785f9be847"
-  integrity sha512-+YdpvaftD51diqy5QrgOrrw2NahHUGsPVRSGMAP6o0Tiuix5h+j1XFNujDpsSH0AtvJo15DTbx1WbASqoqXcqQ==
+  version "6.17.0"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-6.17.0.tgz#78a21f39b8a7548c65c0cc2055e8231137c679a3"
+  integrity sha512-AZus+0YZDq91Zg0hzDaO5atTzHgJruI23V8nBlAhkLuI81Z53nSRdAe/4R1A6vGOZ/RfCLP9idF4tfQnoAsM5A==
   dependencies:
     "@types/debug" "^4.1.7"
+    "@types/validator" "^13.7.1"
     debug "^4.3.3"
     dottie "^2.0.2"
-    inflection "^1.13.1"
+    inflection "^1.13.2"
     lodash "^4.17.21"
     moment "^2.29.1"
     moment-timezone "^0.5.34"
