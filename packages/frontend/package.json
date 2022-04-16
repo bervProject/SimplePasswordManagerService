@@ -13,8 +13,8 @@
   "dependencies": {
     "@mdi/font": "^6.5.96",
     "axios": "^0.26.1",
-    "core-js": "^3.21.0",
-    "cypress": "^9.5.3",
+    "core-js": "^3.22.0",
+    "cypress": "^9.5.4",
     "register-service-worker": "^1.7.2",
     "roboto-fontface": "^0.10.0",
     "vee-validate": "^3.4.14",
