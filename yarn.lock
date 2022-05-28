@@ -1752,10 +1752,10 @@
     long-timeout "^0.1.1"
     uuid "^8.3.2"
 
-"@feathersjs/commons@^4.3.0", "@feathersjs/commons@^4.5.11", "@feathersjs/commons@^4.5.12":
-  version "4.5.12"
-  resolved "https://registry.npmjs.org/@feathersjs/commons/-/commons-4.5.12.tgz#42e60e933849905b8803a3ebd7d4424f85ee7d3f"
-  integrity sha512-ss3yyk8HurmOCSD+wvENIrT9iSa8vg9SmikoP5c9JaLkbtMmKpH88jCjgRl7jiO54f2+UcjW3PqccNgUGSNSDQ==
+"@feathersjs/commons@^4.3.0", "@feathersjs/commons@^4.5.12", "@feathersjs/commons@^4.5.15":
+  version "4.5.15"
+  resolved "https://registry.yarnpkg.com/@feathersjs/commons/-/commons-4.5.15.tgz#2f9c2599fd93607206ee40ab0e5639b79c7781b8"
+  integrity sha512-eVEcLJL3GcPQBQcD77jI3fZ4MMx+iD02Px2Z1lDw+cn/iGCeQkWWAPQs4Tp+HGR1rTL5JO+unyhzN8V9X7OYmw==
 
 "@feathersjs/configuration@^4.5.12":
   version "4.5.12"
@@ -1773,10 +1773,10 @@
   dependencies:
     debug "^4.0.0"
 
-"@feathersjs/errors@^4.3.4", "@feathersjs/errors@^4.5.11", "@feathersjs/errors@^4.5.12":
-  version "4.5.12"
-  resolved "https://registry.npmjs.org/@feathersjs/errors/-/errors-4.5.12.tgz#c9d408a103e2ead228e6c61ea24516e6fe635a43"
-  integrity sha512-xIQJ7t/acTuL1fTC6mpf0qlcWfJkA9x0rRMrSgjD3mzUnJU6VqxXFxusL8895ksGD0vQHwPueblbm8Hn6Ifqqw==
+"@feathersjs/errors@^4.3.4", "@feathersjs/errors@^4.5.11", "@feathersjs/errors@^4.5.12", "@feathersjs/errors@^4.5.15":
+  version "4.5.15"
+  resolved "https://registry.yarnpkg.com/@feathersjs/errors/-/errors-4.5.15.tgz#ec371ca9905685e33f41e331975182f36241d1bd"
+  integrity sha512-EJAYWMsWZlUA/halbgZBc6eP2d3HPkHi5GzprYEK58GCh51KJ36VjX7VKVEnMjgBSED+PE00tpr3ZvUC4nUR+Q==
   dependencies:
     debug "^4.3.3"
 
@@ -1793,12 +1793,12 @@
     lodash "^4.17.21"
     uberproto "^2.0.6"
 
-"@feathersjs/feathers@^4.5.11", "@feathersjs/feathers@^4.5.12":
-  version "4.5.12"
-  resolved "https://registry.npmjs.org/@feathersjs/feathers/-/feathers-4.5.12.tgz#86a99e601a99cd3a30f9e8841039b052676f5168"
-  integrity sha512-24bxpMpheBrDmVwwByNPPfXnXk2KkeiW3NvE3xXHbt7QzZj3OrPJ8WS5MqUZMPMFSLMyqlhRKs+hpQgfWhuxrA==
+"@feathersjs/feathers@^4.5.11", "@feathersjs/feathers@^4.5.12", "@feathersjs/feathers@^4.5.15":
+  version "4.5.15"
+  resolved "https://registry.yarnpkg.com/@feathersjs/feathers/-/feathers-4.5.15.tgz#7eaae343e2c72818edebe7813f610028e6288baa"
+  integrity sha512-Q7sa1QAEhspYHsVEJPRg313bqjNaOhgvibiUxtjf3CGGJL9hVcAPLHQbrzsZuVTR4QwBATZSf6voEtuNmG/pIQ==
   dependencies:
-    "@feathersjs/commons" "^4.5.12"
+    "@feathersjs/commons" "^4.5.15"
     debug "^4.3.3"
     events "^3.3.0"
     uberproto "^2.0.6"
@@ -6070,7 +6070,7 @@ debug@2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3, debug@~4.3.1:
+debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3, debug@^4.3.4, debug@~4.3.1:
   version "4.3.4"
   resolved "https://registry.npmjs.org/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
@@ -7216,20 +7216,19 @@ fd-slicer@~1.1.0:
   dependencies:
     pend "~1.2.0"
 
-feathers-hooks-common@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.npmjs.org/feathers-hooks-common/-/feathers-hooks-common-5.0.6.tgz#eac65521d44c306c838f14c9f1f6deb785ac0b35"
-  integrity sha512-XxCPxZxUgKdNRSLAt0l8c/ovA5AmYHrD5LVuDNdawUapm3dLmfSIBex2emHHEaLuyscpiAl9AtkK0+MnqR2Y1g==
+feathers-hooks-common@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/feathers-hooks-common/-/feathers-hooks-common-6.1.0.tgz#b729e2ef80868eed084f02803435cdcd0fcc595d"
+  integrity sha512-9smwpjvuwzYCldRjAmhzZorRwmQWpMdaCZVBvHW4qFI8D2IqL7g3xgSa059HFdxGNPtc4PohsSm/0+ONTUvzuw==
   dependencies:
     "@feathers-plus/batch-loader" "^0.3.6"
-    "@feathersjs/commons" "^4.5.11"
-    "@feathersjs/errors" "^4.5.11"
-    "@feathersjs/feathers" "^4.5.11"
+    "@feathersjs/commons" "^4.5.15"
+    "@feathersjs/errors" "^4.5.15"
+    "@feathersjs/feathers" "^4.5.15"
     ajv "^6.12.6"
-    debug "^4.3.1"
-    graphql "^15.5.0"
+    debug "^4.3.4"
+    graphql "^16.5.0"
     lodash "^4.17.21"
-    process "0.11.10"
     traverse "^0.6.6"
 
 feathers-memory@^4.1.0:
@@ -7791,10 +7790,10 @@ grant@^4.7.0:
     request-compose "^1.2.1"
     request-oauth "0.0.3"
 
-graphql@^15.5.0:
-  version "15.8.0"
-  resolved "https://registry.npmjs.org/graphql/-/graphql-15.8.0.tgz#33410e96b012fa3bdb1091cc99a94769db212b38"
-  integrity sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw==
+graphql@^16.5.0:
+  version "16.5.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.5.0.tgz#41b5c1182eaac7f3d47164fb247f61e4dfb69c85"
+  integrity sha512-qbHgh8Ix+j/qY+a/ZcJnFQ+j8ezakqPiHwPiZhV/3PgGlgf96QMBB5/f2rkiC9sgLoy/xvT6TSiaf2nTHJh5iA==
 
 gtoken@^5.0.4:
   version "5.3.2"
@@ -11551,11 +11550,6 @@ process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
-
-process@0.11.10:
-  version "0.11.10"
-  resolved "https://registry.npmjs.org/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
-  integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
 progress-webpack-plugin@^1.0.12:
   version "1.0.12"
