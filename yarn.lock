@@ -7330,9 +7330,9 @@ fd-slicer@~1.1.0:
     pend "~1.2.0"
 
 feathers-hooks-common@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.npmjs.org/feathers-hooks-common/-/feathers-hooks-common-6.1.0.tgz#b729e2ef80868eed084f02803435cdcd0fcc595d"
-  integrity sha512-9smwpjvuwzYCldRjAmhzZorRwmQWpMdaCZVBvHW4qFI8D2IqL7g3xgSa059HFdxGNPtc4PohsSm/0+ONTUvzuw==
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/feathers-hooks-common/-/feathers-hooks-common-6.1.1.tgz#2f193fb3d8fcb37923df642ca6450ea5e1d452b4"
+  integrity sha512-IdmlL20PiI6iSogrrqWZIpm3Zsu7RICibOR0X6BmEfrAbirJzKuMJyYjUxWv1REw2YyWNhn6dCQVGpbYjeKmRg==
   dependencies:
     "@feathers-plus/batch-loader" "^0.3.6"
     "@feathersjs/commons" "^4.5.15"
