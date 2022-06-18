@@ -3753,12 +3753,7 @@
   resolved "https://registry.npmjs.org/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
   integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
 
-"@types/validator@*", "@types/validator@^13.7.1":
-  version "13.7.2"
-  resolved "https://registry.npmjs.org/@types/validator/-/validator-13.7.2.tgz#a2114225d9be743fb154b06c29b8257aaca42922"
-  integrity sha512-KFcchQ3h0OPQgFirBRPZr5F/sVjxZsOrQHedj3zi8AH3Zv/hOLx2OLR4hxR5HcfoU+33n69ZuOfzthKVdMoTiw==
-
-"@types/validator@^13.7.3":
+"@types/validator@*", "@types/validator@^13.7.1", "@types/validator@^13.7.3":
   version "13.7.3"
   resolved "https://registry.npmjs.org/@types/validator/-/validator-13.7.3.tgz#3193c0a3c03a7d1189016c62b4fba4b149ef5e33"
   integrity sha512-DNviAE5OUcZ5s+XEQHRhERLg8fOp8gSgvyJ4aaFASx5wwaObm+PBwTIMXiOFm1QrSee5oYwEAYb7LMzX2O88gA==
@@ -12594,9 +12589,9 @@ sequelize-pool@^7.1.0:
   integrity sha512-G9c0qlIWQSK29pR/5U2JF5dDQeqqHRragoyahj/Nx4KOOQ3CPPfzxnfqFPCSB7x5UgjOgnZ61nSxz+fjDpRlJg==
 
 sequelize@^6.20.1:
-  version "6.20.1"
-  resolved "https://registry.npmjs.org/sequelize/-/sequelize-6.20.1.tgz#1c796fa9134e46fefd9509e6e8ac947131b214ba"
-  integrity sha512-1YBMv++Yy1JBFFiac1Xoa+Km5qV6YI1ckdkW0xyD7IpLMtE5JmjgZdZXGfwgRUNjhaKMxdzT+nkvJgeXO0rv/g==
+  version "6.21.0"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-6.21.0.tgz#8b3858a1257a4e8741faece714683a43dc44dafa"
+  integrity sha512-QItP+QMoZL7KWaYtmRRb41sQ9Ua+dpWQbdREO4jYIUBg5hUfRiGq2i2/gAa25B84ft0EzDPY3UvCQS945ytNvA==
   dependencies:
     "@types/debug" "^4.1.7"
     "@types/validator" "^13.7.1"
