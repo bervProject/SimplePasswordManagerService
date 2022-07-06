@@ -22,6 +22,7 @@ jobs:
         run: yarn lerna run build --scope @bervproject/spms-ui
         env:
           NODE_ENV: production
+          PUBLIC_URL: SimplePasswordManagerService/
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
