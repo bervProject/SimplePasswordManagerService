@@ -1,0 +1,30 @@
+name: Build Front End
+on:
+  push:
+    paths:
+      - 'packages/frontend/**'
+    branches:
+      - 'main'
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - name: Install
+        run: |
+          yarn --frozen-lockfile
+          yarn bootstrap
+      - name: Build
+        run: yarn lerna run build --scope @bervproject/spms-ui
+        env:
+          NODE_ENV: production
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: packages/frontend/dist
+
+
