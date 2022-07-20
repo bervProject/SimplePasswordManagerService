@@ -13,7 +13,7 @@
   "dependencies": {
     "@mdi/font": "^6.9.96",
     "axios": "^0.27.2",
-    "core-js": "^3.23.3",
+    "core-js": "^3.23.4",
     "cypress": "^10.2.0",
     "register-service-worker": "^1.7.2",
     "roboto-fontface": "^0.10.0",
