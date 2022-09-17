@@ -13,8 +13,8 @@
   "dependencies": {
     "@mdi/font": "^7.0.96",
     "axios": "^0.27.2",
-    "core-js": "^3.25.0",
-    "cypress": "^10.7.0",
+    "core-js": "^3.25.1",
+    "cypress": "^10.8.0",
     "register-service-worker": "^1.7.2",
     "roboto-fontface": "^0.10.0",
     "vee-validate": "^3.4.14",
@@ -22,7 +22,7 @@
     "vue-class-component": "^7.2.6",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.6.4",
-    "vuetify": "^2.6.9",
+    "vuetify": "^2.6.10",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
@@ -40,9 +40,9 @@
     "@vue/test-utils": "^1.3.0",
     "@vue/vue2-jest": "27.0.0-alpha.4",
     "eslint-plugin-vue": "^8.7.1",
-    "sass": "^1.54.8",
+    "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
-    "vue-cli-plugin-vuetify": "^2.5.5",
+    "vue-cli-plugin-vuetify": "^2.5.8",
     "vue-template-compiler": "^2.6.14"
   }
 }
