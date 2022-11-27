@@ -36,7 +36,7 @@ describe("Feathers application tests (with jest)", () => {
 
   describe("404", () => {
     it("shows a 404 HTML page", async () => {
-      expect.assertions(2);
+      expect.assertions(4);
 
       try {
         await axios.get(getUrl("path/to/nowhere"), {
@@ -54,7 +54,7 @@ describe("Feathers application tests (with jest)", () => {
     });
 
     it("shows a 404 JSON error without stack trace", async () => {
-      expect.assertions(4);
+      expect.assertions(6);
 
       try {
         await axios.get(getUrl("path/to/nowhere"));
