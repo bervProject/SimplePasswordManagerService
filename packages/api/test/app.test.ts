@@ -1,7 +1,7 @@
 // import assert from "assert";
 import { Server } from "http";
 import url from "url";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 import app from "../src/app";
 
@@ -45,9 +45,10 @@ describe("Feathers application tests (with jest)", () => {
           },
         });
       } catch (error) {
-        const { response } = error;
-
+        const { response } = error as AxiosError;
+        expect(response).not.toBeNull();
         expect(response.status).toBe(404);
+        expect(response.data).not.toBeNull();
         expect(response.data.indexOf("<html>")).not.toBe(-1);
       }
     });
@@ -58,9 +59,10 @@ describe("Feathers application tests (with jest)", () => {
       try {
         await axios.get(getUrl("path/to/nowhere"));
       } catch (error) {
-        const { response } = error;
-
+        const { response } = error as AxiosError;
+        expect(response).not.toBeNull();
         expect(response.status).toBe(404);
+        expect(response.data).not.toBeNull();
         expect(response.data.code).toBe(404);
         expect(response.data.message).toBe("Page not found");
         expect(response.data.name).toBe("NotFound");
