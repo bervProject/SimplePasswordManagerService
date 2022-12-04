@@ -8,7 +8,7 @@
   },
   "bucketName": "<<bucketName>>",
   "nedb": "../data",
-  "postgres": "postgres://postgres:devpass4444@localhost:5432/spms",
+  "postgres": "postgres://postgres:@localhost:15432/spms",
   "authentication": {
     "entity": "user",
     "service": "users",
