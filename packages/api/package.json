@@ -38,7 +38,7 @@
     "test": "jest --forceExit"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.223.0",
+    "@aws-sdk/client-ses": "^3.226.0",
     "@bervproject/feathers-advance-hook": "^1.1.1",
     "@feathersjs/authentication": "^4.5.15",
     "@feathersjs/authentication-jwt": "^2.0.10",
@@ -68,7 +68,7 @@
     "@types/bluebird": "^3.5.38",
     "@types/cls-hooked": "^4.3.3",
     "@types/compression": "^1.7.2",
-    "@types/cors": "^2.8.12",
+    "@types/cors": "^2.8.13",
     "@types/jsonwebtoken": "^8.5.9",
     "@types/nodemailer": "^6.4.6",
     "@types/sequelize": "^4.28.14",
