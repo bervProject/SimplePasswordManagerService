@@ -38,7 +38,7 @@
     "test": "jest --forceExit"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.226.0",
+    "@aws-sdk/client-ses": "^3.238.0",
     "@bervproject/feathers-advance-hook": "^1.1.1",
     "@feathersjs/authentication": "^4.5.15",
     "@feathersjs/authentication-jwt": "^2.0.10",
@@ -59,7 +59,7 @@
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.8.0",
     "pg": "^8.8.0",
-    "sequelize": "^6.26.0",
+    "sequelize": "^6.28.0",
     "serve-favicon": "^2.5.0",
     "uuid": "^9.0.0",
     "winston": "^3.8.2"
@@ -69,8 +69,8 @@
     "@types/cls-hooked": "^4.3.3",
     "@types/compression": "^1.7.2",
     "@types/cors": "^2.8.13",
-    "@types/jsonwebtoken": "^8.5.9",
-    "@types/nodemailer": "^6.4.6",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/nodemailer": "^6.4.7",
     "@types/sequelize": "^4.28.14",
     "@types/serve-favicon": "^2.5.3",
     "@types/uuid": "^9.0.0",
