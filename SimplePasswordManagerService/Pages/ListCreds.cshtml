@@ -8,24 +8,25 @@
 <div>
   <h2>List Creds</h2>
   <table class="table">
+    <caption>Credentials List</caption>
     <thead>
-    <tr>
-      <th scope="col">Email</th>
-      <th scope="col">Password</th>
-      <th scope="col">Site URL</th>
-      <th scope="col">Description</th>
-    </tr>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Site URL</th>
+        <th scope="col">Description</th>
+      </tr>
     </thead>
     <tbody>
-    @foreach (var cred in Model._listCredentials)
-    {
-      <tr>
-        <td>@cred.Email</td>
-        <td>@cred.Password</td>
-        <td>@cred.Description</td>
-        <td>@cred.SiteUrl</td>
-      </tr>
-    }
+      @foreach (var cred in Model._listCredentials)
+      {
+        <tr>
+          <td>@cred.Email</td>
+          <td>@cred.Password</td>
+          <td>@cred.Description</td>
+          <td>@cred.SiteUrl</td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>
