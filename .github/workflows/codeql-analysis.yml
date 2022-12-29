@@ -17,10 +17,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript' ]
+        language: [ 'csharp' ]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x'
+        dotnet-quality: 'preview'
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:

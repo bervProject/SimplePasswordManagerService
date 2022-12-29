@@ -1,0 +1,68 @@
+name: SPMS Build (.NET)
+on:
+    push:
+        branches: [main, production]
+        tags:
+          - v*
+    pull_request:
+        branches: [main, production]
+env:
+  IMAGE_NAME: spms
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    services:
+      mongodb:
+        image: mongo
+        ports:
+        - 27017:27017
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+          dotnet-quality: 'preview'
+      - name: Install Dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Publish
+        run: dotnet publish --no-restore --no-build -o published
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: published
+          path: published
+      - name: Publish Image
+        run: dotnet publish --os linux --arch x64 /t:PublishContainer -c Release
+  docker-push-api:
+     needs: build
+     runs-on: ubuntu-22.04
+     if: github.event_name == 'push'
+     steps:
+       - uses: actions/checkout@v3
+       - name: Login to Docker Hub
+         uses: docker/login-action@v1
+         with:
+           username: ${{ secrets.DOCKER_USERNAME }}
+           password: ${{ secrets.DOCKER_TOKEN }}
+       - name: Log in to the Container registry
+         uses: docker/login-action@v1
+         with:
+           registry: ghcr.io
+           username: ${{ github.actor }}
+           password: ${{ secrets.GITHUB_TOKEN }}
+       - name: Extract metadata (tags, labels) for Docker
+         id: meta
+         uses: docker/metadata-action@v3
+         with:
+           images: |
+             bervproject/${{ env.IMAGE_NAME }}
+             ghcr.io/${{ github.repository }}
+       - name: Build and push Docker images
+         uses: docker/build-push-action@v2
+         with:
+           push: true
+           tags: ${{ steps.meta.outputs.tags }}
+           labels: ${{ steps.meta.outputs.labels }}
+  
