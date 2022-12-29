@@ -15,6 +15,7 @@
         <th scope="col">Password</th>
         <th scope="col">Site URL</th>
         <th scope="col">Description</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +24,16 @@
         <tr>
           <td>@cred.Email</td>
           <td>@cred.Password</td>
-          <td>@cred.Description</td>
           <td>@cred.SiteUrl</td>
+          <td>@cred.Description</td>
+          <td>
+            <div>
+              <a class="btn btn-primary" asp-page="Details" asp-route-id="@cred.Id">Details</a>
+              <form method="post">
+                <button class="btn btn-danger" asp-page="ListCreds" asp-page-handler="DeleteCred" asp-route-id="@cred.Id">Delete</button>
+              </form>
+            </div>
+          </td>
         </tr>
       }
     </tbody>

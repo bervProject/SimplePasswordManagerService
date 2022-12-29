@@ -27,21 +27,22 @@ public class AddCredsModel : PageModel
   [BindProperty]
   public CredentialsRequest Creds { get; set; } = default!;
 
-  public void OnPost()
+  public IActionResult OnPost()
   {
     if (!ModelState.IsValid)
     {
-      return;
+      return Page();
     }
 
     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
     if (string.IsNullOrWhiteSpace(userId))
     {
-      return;
+      return Page();
     }
 
     var user = _credentialRepo.CreateCredentials(Creds, userId);
     _logger.LogInformation($"Created by: {user.CreatedBy}");
+    return RedirectToPage("/ListCreds");
   }
 }
 

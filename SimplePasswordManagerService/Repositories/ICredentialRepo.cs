@@ -18,4 +18,18 @@ public interface ICredentialRepo
   /// <param name="userId">User Id</param>
   /// <returns></returns>
   List<Credentials> GetCredentials(string userId);
+  /// <summary>
+  /// Delete credentials
+  /// </summary>
+  /// <param name="id"></param>
+
+  void DeleteCredentials(Guid id);
+
+  /// <summary>
+  /// Get Credentials by Id
+  /// </summary>
+  /// <param name="id"></param>
+  /// <param name="decrypt"></param>
+
+  Credentials? GetCredentialsById(Guid id, bool decrypt = false);
 }

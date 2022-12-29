@@ -15,7 +15,7 @@ public class ListCredsModel : PageModel
     _credentialRepo = credentialRepo;
   }
 
-  [BindProperty] public List<Credentials> _listCredentials { get; set; } = default!;
+  [BindProperty] public List<Credentials> _listCredentials { get; set; } = new();
 
   public void OnGet()
   {
@@ -25,5 +25,11 @@ public class ListCredsModel : PageModel
       return;
     }
     _listCredentials = _credentialRepo.GetCredentials(userId);
+  }
+
+  public IActionResult OnPostDeleteCred(Guid id)
+  {
+    _credentialRepo.DeleteCredentials(id);
+    return RedirectToPage("/ListCreds");
   }
 }

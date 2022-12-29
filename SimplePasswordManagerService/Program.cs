@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.MicrosoftAccount;
 using MongoDB.Driver;
+using SimplePasswordManagerService.Models;
 using SimplePasswordManagerService.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Add mongo
 var mongoConnectionString = builder.Configuration.GetConnectionString("mongo");
+
+// Add secret settings
+builder.Services.Configure<EncryptSettings>(builder.Configuration.GetSection("EncryptSettings"));
+
 if (!string.IsNullOrWhiteSpace(mongoConnectionString))
 {
   var mongoClient = new MongoClient(mongoConnectionString);
@@ -24,8 +29,12 @@ builder.Services.AddAuthentication(
   .AddCookie()
   .AddMicrosoftAccount(microsoftOptions =>
 {
-  microsoftOptions.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
-  microsoftOptions.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+  var clientId = builder.Configuration["Authentication:Microsoft:ClientId"];
+  var clientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+  if (string.IsNullOrWhiteSpace(clientId) || string.IsNullOrWhiteSpace(clientSecret)) return;
+  microsoftOptions.ClientId = clientId;
+  microsoftOptions.ClientSecret = clientSecret;
+  microsoftOptions.SaveTokens = true;
 });
 builder.Services.AddRazorPages();
 
