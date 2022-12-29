@@ -1,0 +1,41 @@
+﻿@page
+@model SimplePasswordManagerService.Pages.ListCredsModel
+
+@{
+  ViewData["Title"] = "List Creds";
+}
+
+<div>
+  <h2>List Creds</h2>
+  <table class="table">
+    <caption>Credentials List</caption>
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Site URL</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var cred in Model._listCredentials)
+      {
+        <tr>
+          <td>@cred.Email</td>
+          <td>@cred.Password</td>
+          <td>@cred.SiteUrl</td>
+          <td>@cred.Description</td>
+          <td>
+            <div>
+              <a class="btn btn-primary" asp-page="Details" asp-route-id="@cred.Id">Details</a>
+              <form method="post">
+                <button class="btn btn-danger" asp-page="ListCreds" asp-page-handler="DeleteCred" asp-route-id="@cred.Id">Delete</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

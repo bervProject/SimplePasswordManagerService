@@ -1,0 +1,20 @@
+version: '3'
+services:
+  backend:
+    build: .
+    image: spms:latest
+    ports:
+      - "8085:80"
+    environment:
+      ConnectionStrings__mongo: "mongodb://root:examplepass@db:27017"
+      Authentication__Microsoft__ClientId: ""
+      Authentication__Microsoft__ClientSecret: ""
+    links:
+      - db
+    depends_on:
+      - db
+  db:
+    image: mongo:6
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: examplepass
