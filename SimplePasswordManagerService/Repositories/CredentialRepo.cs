@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.CodeAnalysis.Options;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using SimplePasswordManagerService.Models;
 using SimplePasswordManagerService.Utils;
