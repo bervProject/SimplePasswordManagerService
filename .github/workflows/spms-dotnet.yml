@@ -41,7 +41,7 @@ jobs:
           name: published
           path: published
       - name: Publish Image
-        run: dotnet publish --os linux --arch x64 /t:PublishContainer -c Release
+        run: dotnet publish SimplePasswordManagerService --os linux --arch x64 /t:PublishContainer -c Release
   docker-push-api:
      needs: build
      runs-on: ubuntu-22.04
