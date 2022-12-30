@@ -28,6 +28,10 @@ jobs:
         run: dotnet build --no-restore
       - name: Test
         run: dotnet test --collect:"XPlat Code Coverage"
+        env:
+          ConnectionStrings__mongo: mongodb://root:mongo-dev@localhost:27017
+          Authentication__Microsoft__ClientId: dummy
+          Authentication__Microsoft__ClientSecret: dummy
       - uses: codecov/codecov-action@v3
       - name: Publish
         run: dotnet publish --no-restore --no-build -o published
