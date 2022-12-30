@@ -26,6 +26,9 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --collect:"XPlat Code Coverage"
+      - uses: codecov/codecov-action@v3
       - name: Publish
         run: dotnet publish --no-restore --no-build -o published
       - name: Archive artifacts
