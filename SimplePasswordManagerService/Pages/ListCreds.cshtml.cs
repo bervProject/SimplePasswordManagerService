@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SimplePasswordManagerService.Models;
@@ -6,6 +7,7 @@ using SimplePasswordManagerService.Repositories;
 
 namespace SimplePasswordManagerService.Pages;
 
+[Authorize]
 public class ListCredsModel : PageModel
 {
   private readonly ICredentialRepo _credentialRepo;

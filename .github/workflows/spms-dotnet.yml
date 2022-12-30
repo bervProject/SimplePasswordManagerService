@@ -26,6 +26,20 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --collect:"XPlat Code Coverage"
+        env:
+          ConnectionStrings__mongo: mongodb://localhost:27017
+          Authentication__Microsoft__ClientId: dummy
+          Authentication__Microsoft__ClientSecret: dummy
+      - uses: codecov/codecov-action@v3
+        with:
+          directory: SimplePasswordManagerService.Test/
+          flags: unittests
+      - uses: codecov/codecov-action@v3
+        with:
+          directory: SimplePasswordManagerService.Integration.Test/
+          flags: integrationtests
       - name: Publish
         run: dotnet publish --no-restore --no-build -o published
       - name: Archive artifacts
@@ -34,7 +48,7 @@ jobs:
           name: published
           path: published
       - name: Publish Image
-        run: dotnet publish --os linux --arch x64 /t:PublishContainer -c Release
+        run: dotnet publish SimplePasswordManagerService --os linux --arch x64 /t:PublishContainer -c Release
   docker-push-api:
      needs: build
      runs-on: ubuntu-22.04

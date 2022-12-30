@@ -61,10 +61,10 @@ public class CredentialRepo : ICredentialRepo
     _collection.DeleteOne(x => x.Id == id);
   }
 
-  public Credentials? GetCredentialsById(Guid id, bool decrypt = false)
+  public Credentials? GetCredentialsById(Guid id, string userId, bool decrypt = false)
   {
     var data = new List<Credentials>();
-    var result = _collection.FindSync(x => x.Id == id, new FindOptions<Credentials>()
+    var result = _collection.FindSync(x => x.Id == id && x.CreatedBy == userId, new FindOptions<Credentials>()
     {
       Limit = 1,
     });

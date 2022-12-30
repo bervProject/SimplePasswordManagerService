@@ -31,5 +31,5 @@ public interface ICredentialRepo
   /// <param name="id"></param>
   /// <param name="decrypt"></param>
 
-  Credentials? GetCredentialsById(Guid id, bool decrypt = false);
+  Credentials? GetCredentialsById(Guid id, string userId, bool decrypt = false);
 }
