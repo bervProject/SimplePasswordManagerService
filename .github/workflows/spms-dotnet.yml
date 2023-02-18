@@ -33,15 +33,17 @@ jobs:
           Authentication__Microsoft__ClientId: dummy
           Authentication__Microsoft__ClientSecret: dummy
       - uses: codecov/codecov-action@v3
+        name: Report Unit Test
         with:
           directory: SimplePasswordManagerService.Test/
           flags: unittests
       - uses: codecov/codecov-action@v3
+        name: Report Integration Test
         with:
           directory: SimplePasswordManagerService.Integration.Test/
           flags: integrationtests
       - name: Publish
-        run: dotnet publish --no-restore --no-build -o published
+        run: dotnet publish SimplePasswordManagerService --no-restore --no-build -o published
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
