@@ -1,0 +1,43 @@
+trigger:
+- main
+
+pr:
+- main
+
+variables:
+  isPullRequest: ${{eq(variables['Build.Reason'], 'PullRequest')}}
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+
+pool:
+  vmImage: ubuntu-22.04
+
+parameters:
+  - name: awsCredentials
+    displayName: AWS Credentials
+    type: string
+    default: 'AWS-Dev-AssumeRole'
+  - name: region
+    displayName: AWS Region
+    type: string
+    default: 'ap-southeast-1'
+
+steps:
+- script: npm install -g aws-cdk
+  displayName: 'Install AWS CDK'
+- script: cd SimplePasswordManagerService.Infra && cdk synth
+  displayName: 'CDK Synth'
+- task: Docker@2
+  displayName: 'Build Docker Image'
+  inputs:
+    command: 'build'
+    Dockerfile: 'Dockerfile'
+    tags: 'spms:$(Build.BuildId)'
+- task: ECRPushImage@1
+  displayName: 'Push Image to ECR'
+  condition: and(succeeded(), eq(variables.isPullRequest, 'false'), eq(variables.isMain, 'true'))
+  inputs:
+    awsCredentials: '${{ parameters.awsCredentials }}'
+    regionName: '${{ parameters.region }}'
+    sourceImageName: 'spms'
+    repositoryName: 'spms'
+    

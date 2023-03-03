@@ -10,6 +10,20 @@ Simple Password Manager Service
 
 .NET
 
+## Pipelines
+
+### Azure DevOps
+
+```mermaid
+flowchart TD
+    A[Install AWS CDK CLI] --> B(CDK Synth)
+    B --> C[Docker Build]
+    C --> D{Is Running in Main?}
+    D -->|Yes| E[Push to ECR]
+    D -->|No| F[End]
+    E --> F
+```
+
 ## LICENSE
 
 MIT
