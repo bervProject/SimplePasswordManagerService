@@ -31,7 +31,8 @@ steps:
   inputs:
     command: 'build'
     Dockerfile: 'Dockerfile'
-    tags: 'spms:$(Build.BuildId)'
+    repository: 'spms'
+    tags: '$(Build.BuildId)'
 - task: ECRPushImage@1
   displayName: 'Push Image to ECR'
   condition: and(succeeded(), eq(variables.isPullRequest, 'false'), eq(variables.isMain, 'true'))
@@ -41,4 +42,4 @@ steps:
     sourceImageName: 'spms'
     sourceImageTag: '$(Build.BuildId)'
     repositoryName: 'spms'
-    repositoryTag: '$(Build.BuildId)'
+    pushTag: '$(Build.BuildId)'
