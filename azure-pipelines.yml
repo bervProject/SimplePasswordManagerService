@@ -39,5 +39,6 @@ steps:
     awsCredentials: '${{ parameters.awsCredentials }}'
     regionName: '${{ parameters.region }}'
     sourceImageName: 'spms'
+    sourceImageTag: '$(Build.BuildId)'
     repositoryName: 'spms'
-    
+    repositoryTag: '$(Build.BuildId)'
