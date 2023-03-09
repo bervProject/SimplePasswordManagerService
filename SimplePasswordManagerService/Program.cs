@@ -42,9 +42,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(options => {
 
 var app = builder.Build();
 
-app.UseForwardedHeaders(new ForwardedHeadersOptions {
-  ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-});
+app.UseForwardedHeaders();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment()) {
