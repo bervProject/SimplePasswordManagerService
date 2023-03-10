@@ -1,0 +1,22 @@
+parameters:
+  - name: awsCredentials
+    displayName: AWS Credentials
+    type: string
+    default: "AWS-Dev-AssumeRole"
+  - name: region
+    displayName: AWS Region
+    type: string
+    default: "ap-southeast-1"
+
+steps:
+  - task: ECRPushImage@1
+    displayName: "Push Image to ECR"
+    inputs:
+      awsCredentials: "${{ parameters.awsCredentials }}"
+      regionName: "${{ parameters.region }}"
+      sourceImageName: "spms"
+      sourceImageTag: "$(Build.BuildId)"
+      repositoryName: "spms"
+      pushTag: "$(Build.BuildId)"
+  - script: cdk deploy SimplePasswordManagerServiceInfraStrack --parameters "imageTag=$(Build.BuildId)"
+    displayName: CDK Deploy

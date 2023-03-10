@@ -22,24 +22,13 @@ parameters:
     default: 'ap-southeast-1'
 
 steps:
-- script: npm install -g aws-cdk
-  displayName: 'Install AWS CDK'
-- script: cd SimplePasswordManagerService.Infra && cdk synth
-  displayName: 'CDK Synth'
-- task: Docker@2
-  displayName: 'Build Docker Image'
-  inputs:
-    command: 'build'
-    Dockerfile: 'Dockerfile'
-    repository: 'spms'
-    tags: '$(Build.BuildId)'
-- task: ECRPushImage@1
-  displayName: 'Push Image to ECR'
-  condition: and(succeeded(), eq(variables.isPullRequest, 'false'), eq(variables.isMain, 'true'))
-  inputs:
-    awsCredentials: '${{ parameters.awsCredentials }}'
-    regionName: '${{ parameters.region }}'
-    sourceImageName: 'spms'
-    sourceImageTag: '$(Build.BuildId)'
-    repositoryName: 'spms'
-    pushTag: '$(Build.BuildId)'
+- template: build.yml
+  parameters:
+    awsCredentials: ${{ parameters.awsCredentials }}
+    region: ${{ parameters.region }}
+- ${{ if and(succeeded(), eq(variables.isPullRequest, 'false'), eq(variables.isMain, 'true')) }}:
+  - template: deploy.yml
+    condition: 
+    parameters:
+      awsCredentials: ${{ parameters.awsCredentials }}
+      region: ${{ parameters.region }}

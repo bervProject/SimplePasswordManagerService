@@ -1,22 +1,43 @@
 using Amazon.CDK;
+using Amazon.CDK.AWS.AppRunner.Alpha;
 using Amazon.CDK.AWS.ECR;
 using Constructs;
+using System.Collections.Generic;
 
 namespace SimplePasswordManagerService.Infra {
   public class SimplePasswordManagerServiceInfraStack : Stack {
     internal SimplePasswordManagerServiceInfraStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props) {
-      var repository = new Repository(this, "spms", new RepositoryProps {
-        RepositoryName = "spms",
-        ImageTagMutability = TagMutability.MUTABLE,
-        RemovalPolicy = RemovalPolicy.DESTROY,
-        ImageScanOnPush = true,
-        Encryption = RepositoryEncryption.KMS,
-        LifecycleRules = new LifecycleRule[] {
-        new LifecycleRule {
-          MaxImageAge = Duration.Days(7),
-          RulePriority = 1,
-          TagStatus = TagStatus.UNTAGGED,
-        }}
+      // 0.0 ECR
+      var repository = Repository.FromRepositoryName(this, "spms-ecr", "spms");
+
+      // 1.0 AppRunner
+      var appRunnerSecret = Amazon.CDK.AWS.SecretsManager.Secret.FromSecretNameV2(this, "apprunner-secret", "dev/AppRunner/spms");
+
+      var imageTag = new CfnParameter(this, "imageTag", new CfnParameterProps {
+        Type = "String",
+        Description = "Target tag"
+      });
+
+      var appRunner = new Service(this, "spms-apprunner", new ServiceProps {
+        Source = Source.FromEcr(new EcrProps {
+          Repository = repository,
+          ImageConfiguration = new ImageConfiguration {
+            Port = 80,
+            EnvironmentSecrets = new Dictionary<string, Secret> {
+              {"Authentication__Microsoft__ClientId", Secret.FromSecretsManager(appRunnerSecret, "Authentication__Microsoft__ClientId")},
+              {"Authentication__Microsoft__ClientSecret", Secret.FromSecretsManager(appRunnerSecret, "Authentication__Microsoft__ClientSecret")},
+              {"ConnectionStrings__mongo", Secret.FromSecretsManager(appRunnerSecret, "ConnectionStrings__mongo")},
+            },
+            EnvironmentVariables = new Dictionary<string, string> {
+              {"ASPNETCORE_FORWARDEDHEADERS_ENABLED", "true" }
+            }
+          },
+          TagOrDigest = imageTag.ValueAsString
+        }),
+      });
+
+      new CfnOutput(this, "output-spms-apprunner-url", new CfnOutputProps {
+        Value = appRunner.ServiceUrl
       });
     }
   }
