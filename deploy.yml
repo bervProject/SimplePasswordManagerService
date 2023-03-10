@@ -18,7 +18,7 @@ steps:
       sourceImageTag: "$(Build.BuildId)"
       repositoryName: "spms"
       pushTag: "$(Build.BuildId)"
-  - script: cd SimplePasswordManagerService.Infra && cdk deploy SimplePasswordManagerServiceInfraStrack --parameters "imageTag=$(Build.BuildId)"
+  - script: cd SimplePasswordManagerService.Infra && cdk deploy SimplePasswordManagerServiceInfraStack --parameters "imageTag=$(Build.BuildId)"
     displayName: CDK Deploy
     env:
       AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
