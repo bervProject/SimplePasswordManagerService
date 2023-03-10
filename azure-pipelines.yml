@@ -26,9 +26,8 @@ steps:
   parameters:
     awsCredentials: ${{ parameters.awsCredentials }}
     region: ${{ parameters.region }}
-- ${{ if eq(variables['isPullRequest'], 'false') }}:
-  - ${{ if eq(variables['isMain'], 'true') }}:
-    - template: deploy.yml
-      parameters:
-        awsCredentials: ${{ parameters.awsCredentials }}
-        region: ${{ parameters.region }}
+- ${{ if and(neq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.SourceBranch'], 'refs/heads/main')) }}:
+  - template: deploy.yml
+    parameters:
+      awsCredentials: ${{ parameters.awsCredentials }}
+      region: ${{ parameters.region }}
