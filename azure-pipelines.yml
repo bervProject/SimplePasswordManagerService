@@ -5,8 +5,7 @@ pr:
 - main
 
 variables:
-  isPullRequest: ${{eq(variables['Build.Reason'], 'PullRequest')}}
-  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+- group: 'AWS'
 
 pool:
   vmImage: ubuntu-22.04
