@@ -28,7 +28,6 @@ steps:
     region: ${{ parameters.region }}
 - ${{ if and(eq(variables.isPullRequest, 'false'), eq(variables.isMain, 'true')) }}:
   - template: deploy.yml
-    condition: 
     parameters:
       awsCredentials: ${{ parameters.awsCredentials }}
       region: ${{ parameters.region }}
