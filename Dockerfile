@@ -1,3 +1,5 @@
+ARG APP_NAME=SimplePasswordManagerService
+
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build-env
 WORKDIR /App
 
@@ -6,10 +8,10 @@ COPY . ./
 # Restore as distinct layers
 RUN dotnet restore
 # Build and publish a release
-RUN dotnet publish -c Release -o out
+RUN dotnet publish $APP_NAME -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine
 WORKDIR /App
 COPY --from=build-env /App/out .
-ENTRYPOINT ["dotnet", "SimplePasswordManagerService.dll"]
+ENTRYPOINT ["dotnet", "$APP_NAME.dll"]
