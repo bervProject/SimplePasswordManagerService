@@ -21,7 +21,8 @@ flowchart TD
     C --> D{Is Running in Main?}
     D -->|Yes| E[Push to ECR]
     D -->|No| F[End]
-    E --> F
+    E --> G[CDK Deploy]
+    G --> F
 ```
 
 ## LICENSE
