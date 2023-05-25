@@ -25,7 +25,7 @@ jobs:
       - name: Install Dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore -c Release
       - name: Test
         run: dotnet test --collect:"XPlat Code Coverage"
         env:
@@ -43,7 +43,7 @@ jobs:
           directory: SimplePasswordManagerService.Integration.Test/
           flags: integrationtests
       - name: Publish
-        run: dotnet publish SimplePasswordManagerService --no-restore --no-build -o published
+        run: dotnet publish SimplePasswordManagerService -c Release --no-restore --no-build -o published
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
