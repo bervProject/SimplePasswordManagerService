@@ -10,6 +10,15 @@ Simple Password Manager Service
 
 .NET
 
+## Storage Provider
+
+1. MongoDB
+
+### Planned
+
+1. Azure Key Vault
+2. AWS Secrets Manager
+
 ## Pipelines
 
 ### Azure DevOps

@@ -22,7 +22,7 @@ namespace SimplePasswordManagerService.Infra {
         Source = Source.FromEcr(new EcrProps {
           Repository = repository,
           ImageConfiguration = new ImageConfiguration {
-            Port = 80,
+            Port = 8080,
             EnvironmentSecrets = new Dictionary<string, Secret> {
               {"AzureAd__ClientId", Secret.FromSecretsManager(appRunnerSecret, "Authentication__Microsoft__ClientId")},
               {"AzureAd__ClientSecret", Secret.FromSecretsManager(appRunnerSecret, "Authentication__Microsoft__ClientSecret")},
