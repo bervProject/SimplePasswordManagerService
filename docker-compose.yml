@@ -7,8 +7,8 @@ services:
       - "8085:80"
     environment:
       ConnectionStrings__mongo: "mongodb://root:examplepass@db:27017"
-      Authentication__Microsoft__ClientId: ""
-      Authentication__Microsoft__ClientSecret: ""
+      AzureAd__ClientId: ""
+      AzureAd__ClientSecret: ""
     links:
       - db
     depends_on:
