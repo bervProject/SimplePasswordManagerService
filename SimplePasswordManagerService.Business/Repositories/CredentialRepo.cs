@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using SimplePasswordManagerService.Business.Models;
 using SimplePasswordManagerService.Business.Utils;
@@ -9,14 +10,27 @@ namespace SimplePasswordManagerService.Business.Repositories;
 public class CredentialRepo : ICredentialRepo
 {
   private readonly IMongoCollection<Credentials> _collection;
+  private readonly IMongoDatabase _database;
   private readonly ILogger<CredentialRepo> _logger;
   private readonly EncryptSettings _settings;
   public CredentialRepo(IMongoClient client, ILogger<CredentialRepo> logger, IOptions<EncryptSettings> options)
   {
     _logger = logger;
-    var database = client.GetDatabase("spms");
-    _collection = database.GetCollection<Credentials>("credentials");
+    _database = client.GetDatabase("spms");
+    _collection = _database.GetCollection<Credentials>("credentials");
     _settings = options.Value;
+  }
+
+  /// <inheritdoc />
+  public async Task<bool> IsHealthy()
+  {
+    try {
+      await _database.RunCommandAsync<BsonDocument>(new BsonDocument { { "ping", 1 } });
+      return true;
+    } catch (Exception ex) {
+      _logger.LogError(ex, "Error when checking healthy");
+      return false;
+    }
   }
 
   /// <inheritdoc />

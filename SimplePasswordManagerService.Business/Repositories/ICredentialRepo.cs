@@ -5,6 +5,11 @@ namespace SimplePasswordManagerService.Business.Repositories;
 public interface ICredentialRepo
 {
   /// <summary>
+  /// Check healthy
+  /// </summary>
+  /// <returns></returns>
+  Task<bool> IsHealthy();
+  /// <summary>
   /// Create Credentials
   /// </summary>
   /// <param name="request"></param>
