@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using MongoDB.Driver;
 using SimplePasswordManagerService.Business.Models;
 using SimplePasswordManagerService.Business.Repositories;
+using SimplePasswordManagerService.Healths;
+using System.Text;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +25,8 @@ if (!string.IsNullOrWhiteSpace(mongoConnectionString))
   builder.Services.AddSingleton<IMongoClient>(mongoClient);
 }
 builder.Services.AddScoped<ICredentialRepo, CredentialRepo>();
+
+builder.Services.AddHealthChecks().AddCheck<MongoHealthCheck>("mongo");
 
 // Add services to the container.
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
@@ -65,10 +71,56 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
+app.MapHealthChecks("/healthz", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions {
+  ResponseWriter = WriteResponse
+});
 app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
+
 app.Run();
+
+static Task WriteResponse(HttpContext context, HealthReport healthReport)
+{
+    context.Response.ContentType = "application/json; charset=utf-8";
+
+    var options = new JsonWriterOptions { Indented = true };
+
+    using var memoryStream = new MemoryStream();
+    using (var jsonWriter = new Utf8JsonWriter(memoryStream, options))
+    {
+        jsonWriter.WriteStartObject();
+        jsonWriter.WriteString("status", healthReport.Status.ToString());
+        jsonWriter.WriteStartObject("results");
+
+        foreach (var healthReportEntry in healthReport.Entries)
+        {
+            jsonWriter.WriteStartObject(healthReportEntry.Key);
+            jsonWriter.WriteString("status",
+                healthReportEntry.Value.Status.ToString());
+            jsonWriter.WriteString("description",
+                healthReportEntry.Value.Description);
+            jsonWriter.WriteStartObject("data");
+
+            foreach (var item in healthReportEntry.Value.Data)
+            {
+                jsonWriter.WritePropertyName(item.Key);
+
+                JsonSerializer.Serialize(jsonWriter, item.Value,
+                    item.Value?.GetType() ?? typeof(object));
+            }
+
+            jsonWriter.WriteEndObject();
+            jsonWriter.WriteEndObject();
+        }
+
+        jsonWriter.WriteEndObject();
+        jsonWriter.WriteEndObject();
+    }
+
+    return context.Response.WriteAsync(
+        Encoding.UTF8.GetString(memoryStream.ToArray()));
+}
 
 public partial class Program { }
