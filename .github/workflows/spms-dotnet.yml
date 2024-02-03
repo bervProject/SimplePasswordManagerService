@@ -32,12 +32,12 @@ jobs:
           ConnectionStrings__mongo: mongodb://localhost:27017
           AzureAd__ClientId: dummy
           AzureAd__ClientSecret: dummy
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
         name: Report Unit Test
         with:
           directory: SimplePasswordManagerService.Test/
           flags: unittests
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
         name: Report Integration Test
         with:
           directory: SimplePasswordManagerService.Integration.Test/
