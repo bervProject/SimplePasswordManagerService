@@ -9,7 +9,7 @@ RUN dotnet restore
 RUN dotnet publish SimplePasswordManagerService -c Release -o out
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine
 WORKDIR /App
 COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "SimplePasswordManagerService.dll"]
