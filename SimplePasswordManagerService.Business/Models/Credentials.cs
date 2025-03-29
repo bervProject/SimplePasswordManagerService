@@ -1,9 +1,11 @@
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace SimplePasswordManagerService.Business.Models;
 
 public record Credentials
 {
+  [BsonGuidRepresentation(GuidRepresentation.Standard)]
   public Guid Id { get; set; } = default!;
   /// <summary>
   /// Users Mapping
