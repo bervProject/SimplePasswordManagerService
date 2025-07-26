@@ -10,7 +10,7 @@ namespace SimplePasswordManagerService.Infra {
         RepositoryName = "spms",        
         ImageTagMutability = TagMutability.MUTABLE,
         RemovalPolicy = RemovalPolicy.RETAIN,
-        ImageScanOnPush = true,
+        ImageScanOnPush = false,
         Encryption = RepositoryEncryption.KMS,
         LifecycleRules = new LifecycleRule[] {
         new LifecycleRule {
