@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:10.0-preview-alpine AS build-env
 WORKDIR /App
 
 # Copy everything
@@ -9,7 +9,7 @@ RUN dotnet restore
 RUN dotnet publish SimplePasswordManagerService -c Release -o out
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-preview-alpine
 WORKDIR /App
 COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "SimplePasswordManagerService.dll"]
