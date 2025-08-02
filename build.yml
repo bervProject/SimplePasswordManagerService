@@ -9,8 +9,18 @@ parameters:
     default: 'ap-southeast-1'
 
 steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET 10 Preview'
+  inputs:
+    packageType: 'sdk'
+    version: '10.0.x'
+    includePreviewVersions: true
 - script: npm install -g aws-cdk
   displayName: 'Install AWS CDK'
+- script: dotnet restore
+  displayName: 'Restore .NET packages'
+- script: dotnet build --no-restore -c Release
+  displayName: 'Build .NET projects'
 - script: cd SimplePasswordManagerService.Infra && cdk synth
   displayName: 'CDK Synth'
 - task: Docker@2
