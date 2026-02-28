@@ -45,7 +45,7 @@ jobs:
       - name: Publish
         run: dotnet publish SimplePasswordManagerService -c Release --no-restore --no-build -o published
       - name: Archive artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: published
           path: published
