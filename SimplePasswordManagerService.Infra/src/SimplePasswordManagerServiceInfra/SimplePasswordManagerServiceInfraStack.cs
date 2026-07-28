@@ -12,7 +12,11 @@ namespace SimplePasswordManagerService.Infra {
       var repository = Repository.FromRepositoryName(this, "spms-ecr", "spms");
 
       // 1.0 Parameters
-      var secret = Amazon.CDK.AWS.SecretsManager.Secret.FromSecretNameV2(this, "ecs-secret", "dev/AppRunner/spms");
+      var secretArn = new CfnParameter(this, "secretArn", new CfnParameterProps {
+        Type = "String",
+        Description = "Full ARN of the Secrets Manager secret (e.g. arn:aws:secretsmanager:<region>:<account>:secret:dev/AppRunner/spms-AbCdEf)"
+      });
+      var secret = Amazon.CDK.AWS.SecretsManager.Secret.FromSecretCompleteArn(this, "ecs-secret", secretArn.ValueAsString);
 
       var imageTag = new CfnParameter(this, "imageTag", new CfnParameterProps {
         Type = "String",
@@ -27,12 +31,11 @@ namespace SimplePasswordManagerService.Infra {
           ManagedPolicy.FromAwsManagedPolicyName("service-role/AmazonECSTaskExecutionRolePolicy")
         }
       });
-      // secret.SecretArn from FromSecretNameV2 resolves without the random suffix
-      // that AWS appends (e.g. dev/AppRunner/spms-AbCdEf), so append -* to match it.
+      // Full ARN is passed in as a parameter, so no wildcard suffix is needed.
       taskExecutionRole.AddToPolicy(new PolicyStatement(new PolicyStatementProps {
         Effect = Effect.ALLOW,
         Actions = new[] { "secretsmanager:GetSecretValue" },
-        Resources = new[] { $"{secret.SecretArn}-*" }
+        Resources = new[] { secret.SecretArn }
       }));
 
       // Task Role — runtime permissions for the application
