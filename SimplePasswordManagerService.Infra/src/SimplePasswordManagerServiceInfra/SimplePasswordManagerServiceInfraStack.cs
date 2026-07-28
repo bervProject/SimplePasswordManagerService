@@ -27,10 +27,12 @@ namespace SimplePasswordManagerService.Infra {
           ManagedPolicy.FromAwsManagedPolicyName("service-role/AmazonECSTaskExecutionRolePolicy")
         }
       });
+      // secret.SecretArn from FromSecretNameV2 resolves without the random suffix
+      // that AWS appends (e.g. dev/AppRunner/spms-AbCdEf), so append -* to match it.
       taskExecutionRole.AddToPolicy(new PolicyStatement(new PolicyStatementProps {
         Effect = Effect.ALLOW,
         Actions = new[] { "secretsmanager:GetSecretValue" },
-        Resources = new[] { secret.SecretArn }
+        Resources = new[] { $"{secret.SecretArn}-*" }
       }));
 
       // Task Role — runtime permissions for the application
