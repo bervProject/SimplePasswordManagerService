@@ -52,47 +52,47 @@ namespace SimplePasswordManagerService.Infra {
       });
 
       // 3.0 ECS Express Mode Service
-      var imageUri = $"{repository.RepositoryUri}:{imageTag.ValueAsString}";
+      // var imageUri = $"{repository.RepositoryUri}:{imageTag.ValueAsString}";
 
-      var expressService = new CfnExpressGatewayService(this, "spms-ecs-express", new CfnExpressGatewayServiceProps {
-        ServiceName = "spms-express-service",
-        ExecutionRoleArn = taskExecutionRole.RoleArn,
-        TaskRoleArn = taskRole.RoleArn,
-        InfrastructureRoleArn = infrastructureRole.RoleArn,
-        Cpu = "256",
-        Memory = "512",
-        HealthCheckPath = "/health",
-        PrimaryContainer = new CfnExpressGatewayService.ExpressGatewayContainerProperty {
-          Image = imageUri,
-          ContainerPort = 8080,
-          Environment = new [] {
-            new CfnExpressGatewayService.KeyValuePairProperty { Name = "ASPNETCORE_FORWARDEDHEADERS_ENABLED", Value = "true" }
-          },
-          Secrets = new [] {
-            new CfnExpressGatewayService.SecretProperty { Name = "AzureAd__ClientId",     ValueFrom = $"{secret.SecretArn}:Authentication__Microsoft__ClientId::" },
-            new CfnExpressGatewayService.SecretProperty { Name = "AzureAd__ClientSecret", ValueFrom = $"{secret.SecretArn}:Authentication__Microsoft__ClientSecret::" },
-            new CfnExpressGatewayService.SecretProperty { Name = "ConnectionStrings__mongo", ValueFrom = $"{secret.SecretArn}:ConnectionStrings__mongo::" }
-          },
-          AwsLogsConfiguration = new CfnExpressGatewayService.ExpressGatewayServiceAwsLogsConfigurationProperty {
-            LogGroup = "/aws/ecs/spms-express",
-            LogStreamPrefix = "spms"
-          }
-        },
-        ScalingTarget = new CfnExpressGatewayService.ExpressGatewayScalingTargetProperty {
-          AutoScalingMetric = "REQUEST_COUNT_PER_TARGET",
-          AutoScalingTargetValue = 20,
-          MinTaskCount = 1,
-          MaxTaskCount = 3
-        }
-      });
+      // var expressService = new CfnExpressGatewayService(this, "spms-ecs-express", new CfnExpressGatewayServiceProps {
+      //   ServiceName = "spms-express-service",
+      //   ExecutionRoleArn = taskExecutionRole.RoleArn,
+      //   TaskRoleArn = taskRole.RoleArn,
+      //   InfrastructureRoleArn = infrastructureRole.RoleArn,
+      //   Cpu = "256",
+      //   Memory = "512",
+      //   HealthCheckPath = "/health",
+      //   PrimaryContainer = new CfnExpressGatewayService.ExpressGatewayContainerProperty {
+      //     Image = imageUri,
+      //     ContainerPort = 8080,
+      //     Environment = new [] {
+      //       new CfnExpressGatewayService.KeyValuePairProperty { Name = "ASPNETCORE_FORWARDEDHEADERS_ENABLED", Value = "true" }
+      //     },
+      //     Secrets = new [] {
+      //       new CfnExpressGatewayService.SecretProperty { Name = "AzureAd__ClientId",     ValueFrom = $"{secret.SecretArn}:Authentication__Microsoft__ClientId::" },
+      //       new CfnExpressGatewayService.SecretProperty { Name = "AzureAd__ClientSecret", ValueFrom = $"{secret.SecretArn}:Authentication__Microsoft__ClientSecret::" },
+      //       new CfnExpressGatewayService.SecretProperty { Name = "ConnectionStrings__mongo", ValueFrom = $"{secret.SecretArn}:ConnectionStrings__mongo::" }
+      //     },
+      //     AwsLogsConfiguration = new CfnExpressGatewayService.ExpressGatewayServiceAwsLogsConfigurationProperty {
+      //       LogGroup = "/aws/ecs/spms-express",
+      //       LogStreamPrefix = "spms"
+      //     }
+      //   },
+      //   ScalingTarget = new CfnExpressGatewayService.ExpressGatewayScalingTargetProperty {
+      //     AutoScalingMetric = "REQUEST_COUNT_PER_TARGET",
+      //     AutoScalingTargetValue = 20,
+      //     MinTaskCount = 1,
+      //     MaxTaskCount = 3
+      //   }
+      // });
 
-      new CfnOutput(this, "output-spms-ecs-express-arn", new CfnOutputProps {
-        Value = expressService.AttrServiceArn
-      });
+      // new CfnOutput(this, "output-spms-ecs-express-arn", new CfnOutputProps {
+      //   Value = expressService.AttrServiceArn
+      // });
 
-      new CfnOutput(this, "output-spms-ecs-express-endpoint", new CfnOutputProps {
-        Value = expressService.AttrEndpoint
-      });
+      // new CfnOutput(this, "output-spms-ecs-express-endpoint", new CfnOutputProps {
+      //   Value = expressService.AttrEndpoint
+      // });
     }
   }
 }
